@@ -1,0 +1,121 @@
+{
+    "Status": "1",
+    "Message": "",
+    "CommitBooking": {
+        "BookingDetails": {
+            "BookingId": "1518381",
+            "PNR": "DYAWVD",
+            "GDSPNR": null,
+            "PassengerDetails": [
+                {
+                    "PassengerId": "14603",
+                    "TicketId": "1783017",
+                    "PassengerType": "ADT",
+                    "Title": "Mr",
+                    "FirstName": "testadult",
+                    "LastName": "test",
+                    "TicketNumber": "0982047682667"
+                },
+                {
+                    "PassengerId": "14603",
+                    "TicketId": "1783017",
+                    "PassengerType": "ADT",
+                    "Title": "Mr",
+                    "FirstName": "testadult",
+                    "LastName": "test",
+                    "TicketNumber": "0982047682667"
+                },
+                {
+                    "PassengerId": "14603",
+                    "TicketId": "1783017",
+                    "PassengerType": "CHD",
+                    "Title": "Mr",
+                    "FirstName": "testadult",
+                    "LastName": "test",
+                    "TicketNumber": "0982047682667"
+                }
+            ],
+            "JourneyList": {
+                "FlightDetails": {
+                    "Details": [
+                        [
+                            {
+                                "Origin": {
+                                    "AirportCode": "BOM",
+                                    "CityName": "Mumbai",
+                                    "AirportName": "Mumbai",
+                                    "DateTime": "2019-11-20 09:00:00",
+                                    "FDTV": 1574220600,
+                                    "Terminal": null
+                                },
+                                "Destination": {
+                                    "AirportCode": "DEL",
+                                    "CityName": "Delhi",
+                                    "AirportName": "Delhi",
+                                    "DateTime": "2019-11-20 11:30:00",
+                                    "FATV": 1574229600,
+                                    "Terminal": null
+                                },
+                                "AirlinePNR": null,
+                                "OperatorCode": "AI",
+                                "DisplayOperatorCode": "AI",
+                                "OperatorName": "Air India",
+                                "FlightNumber": "866",
+                                "CabinClass": "S",
+                                "Attr": ""
+                            }
+                        ]
+
+                        ,
+                        [
+                            {
+                                "Origin": {
+                                    "AirportCode": "DEL",
+                                    "CityName": "Mumbai",
+                                    "AirportName": "Mumbai",
+                                    "DateTime": "2019-11-20 09:00:00",
+                                    "FDTV": 1574220600,
+                                    "Terminal": null
+                                },
+                                "Destination": {
+                                    "AirportCode": "BOM",
+                                    "CityName": "Delhi",
+                                    "AirportName": "Delhi",
+                                    "DateTime": "2019-11-20 11:30:00",
+                                    "FATV": 1574229600,
+                                    "Terminal": null
+                                },
+                                "AirlinePNR": null,
+                                "OperatorCode": "AI",
+                                "DisplayOperatorCode": "AI",
+                                "OperatorName": "Air India",
+                                "FlightNumber": "866",
+                                "CabinClass": "S",
+                                "Attr": ""
+                            }
+                        ]
+                    ]
+                }
+            },
+            "Price": {
+                "Currency": "INR",
+                "TotalDisplayFare": 3923.72,
+                "PriceBreakup": {
+                    "BasicFare": 3223.71,
+                    "Tax": 700.01,
+                    "AgentCommission": 31.09,
+                    "AgentTdsOnCommision": 1.555
+                },
+                "PassengerBreakup": {
+                    "ADT": {
+                        "BasePrice": 3223.71,
+                        "Tax": 700.01,
+                        "TotalPrice": 3923.72,
+                        "PassengerCount": 1
+                    }
+                }
+            },
+            "Attr": ""
+        }
+    }
+}

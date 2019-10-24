@@ -1,0 +1,97 @@
+{
+    "Status": 1,
+    "Message": "",
+    "UpdateFareQuote": {
+        "FareQuoteDetails": {
+            "JourneyList": {
+                "FlightDetails": {
+                    "Details": [
+                        [
+                            {
+                                "Origin": {
+                                    "AirportCode": "BOM",
+                                    "CityName": "Mumbai",
+                                    "AirportName": "Mumbai",
+                                    "DateTime": "2019-11-20 13:10:00"
+                                },
+                                "Destination": {
+                                    "AirportCode": "DXB",
+                                    "CityName": "Dubai",
+                                    "AirportName": "Dubai",
+                                    "DateTime": "2019-11-20 15:10:00"
+                                },
+                                "OperatorCode": "IX",
+                                "DisplayOperatorCode": "",
+                                "OperatorName": "Air india express",
+                                "FlightNumber": "247",
+                                "CabinClass": "Y",
+                                "Duration": "210",
+                                "Attr": {
+                                    "AvailableSeats": 3,
+                                    "Baggage": null,
+                                    "CabinBaggage": "7 Kg"
+                                }
+                            }
+                        ],
+                        [
+                            {
+                                "Origin": {
+                                    "AirportCode": "DXB",
+                                    "CityName": "Dubai",
+                                    "AirportName": "Dubai",
+                                    "DateTime": "2019-11-24 18:00:00"
+                                },
+                                "Destination": {
+                                    "AirportCode": "BOM",
+                                    "CityName": "Mumbai",
+                                    "AirportName": "Mumbai",
+                                    "DateTime": "2019-11-24 22:30:00"
+                                },
+                                "OperatorCode": "IX",
+                                "DisplayOperatorCode": "",
+                                "OperatorName": "Air india express",
+                                "FlightNumber": "248",
+                                "CabinClass": "Y",
+                                "Duration": "180",
+                                "Attr": {
+                                    "AvailableSeats": 2,
+                                    "Baggage": null,
+                                    "CabinBaggage": "7 Kg"
+                                }
+                            }
+                        ]
+                    ]
+                },
+                "Price": {
+                    "Currency": "INR",
+                    "TotalDisplayFare": 15641.84,
+                    "PriceBreakup": {
+                        "BasicFare": 2152.12,
+                        "Tax": 13489.72,
+                        "AgentCommission": 0,
+                        "AgentTdsOnCommision": 0
+                    },
+                    "PassengerBreakup": {
+                        "ADT": {
+                            "BasePrice": 2152.12,
+                            "Tax": 13489.72,
+                            "TotalPrice": 15641.84,
+                            "PassengerCount": "1"
+                        },
+                        "CHD": {
+                            "BasePrice": 2152.12,
+                            "Tax": 13489.72,
+                            "TotalPrice": 15641.84,
+                            "PassengerCount": "3"
+                        }
+                    }
+                },
+                "ResultToken": "7199735a4c203eb4b195e4444760699f*_*201*_*KSOotgjjS5qIeTcJ",
+                "Attr": {
+                    "IsRefundable": false,
+                    "IsLCC": true
+                }
+            }
+        }
+    }
+}
