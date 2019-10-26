@@ -7,6 +7,7 @@ import Home from './src/Comps/Tabs/Home';
 import SearchPlace from './src/Comps/Location/SearchPlace';
 import SearchFlight from './src/Comps/flights/SearchFLight';
 import FlightStack from './src/Comps/flights';
+import HotelStack from './src/Comps/Hotels';
 
 // const Home = () => <View style={{flex:1,justifyContent:'center',alignItems:'center'}}><Text>home</Text> </View>
 
@@ -20,9 +21,9 @@ const TabNavigator = createBottomTabNavigator({
 
 const App = createStackNavigator({
   
-  Home : TabNavigator,
+  // Home : TabNavigator,
   // Autocomplete : SearchPlace,
-  // Hotels : Hot
+  Hotels : HotelStack,
   Flights : FlightStack
 },{
   defaultNavigationOptions:{

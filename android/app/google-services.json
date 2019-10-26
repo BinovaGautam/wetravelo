@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "694482894429",
+    "firebase_url": "https://wetravelo-23c92.firebaseio.com",
+    "project_id": "wetravelo-23c92",
+    "storage_bucket": "wetravelo-23c92.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:694482894429:android:c7972e0df43d0985f5d7b4",
+        "android_client_info": {
+          "package_name": "com.wetravelo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "694482894429-40bs9v3ctjp7f0trtq2cmei3vntc2jid.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgRWSU79MbrFBm9eXvn4QuKJZSuFfS4EI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "694482894429-40bs9v3ctjp7f0trtq2cmei3vntc2jid.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

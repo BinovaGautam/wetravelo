@@ -17,8 +17,8 @@ const mapDispatchToProps = dispatch =>({
 const HotelCard = (props) =>{
      const [count,setCount]  = useState(0)
      const url = "https://images.oyoroomscdn.com/uploads/hotel_image/42870/xlarge/6c5ec7192f0d94cd.jpg"
-     const {name,dispatch} = props
-
+     const {hotel,dispatch} = props
+     const {HotelName,StarRating,HotelPicture,HotelAddress} = hotel
      const wishlist = () => {
        props.toggleHotel({type:'TOGGLE_WHISHLIST'})
        console.log('oye lucky oye',props)
@@ -29,16 +29,16 @@ const HotelCard = (props) =>{
               style={{margin:8,minHeight:150,backgroundColor:'#fff',marginTop:2,}}>
                  
              <Image  style={{ height: 150,width:'auto' }}
-                source={{ uri: url }} />
+                source={{ uri:HotelPicture || url }} />
 
                 <View style={{position:'absolute',height:20,paddingHorizontal:4,backgroundColor:'teal',top:5,left:5,elevation:3,justifyContent:'center'}}>
-                      <Text style={{color:'#fff',fontSize:10,fontWeight:'500'}}> 4.1 <Icon name="star" type="Entypo" style={{color:'#fff',fontSize:10,fontWeight:'500'}}/>
+                      <Text style={{color:'#fff',fontSize:10,fontWeight:'500'}}> {StarRating} <Icon name="star" type="Entypo" style={{color:'#fff',fontSize:10,fontWeight:'500'}}/>
                       | 674 Ratings</Text>
                 </View>
 
                 <View style={{padding:8}}>
-                    <Text style={{fontSize:16,fontWeight:'500',color:'#000'}}> Lemon Tree Hotel Garchibowli </Text>
-                    <Text style={{margin:3,color:'#95a5a6',fontSize:12}}>Near Laxmi Nagar Metro {props.name} </Text>
+                    <Text style={{fontSize:16,fontWeight:'500',color:'#000'}}> {HotelName} </Text>
+                    <Text style={{margin:3,color:'#95a5a6',fontSize:12}}>{HotelAddress.substr(0,20)} </Text>
 
                     <View style={{flexDirection:'row',marginVertical:3}}>
                       <Text style={{fontSize:18,fontWeight:'500',color:'#000'}}> ₹1225 </Text>
