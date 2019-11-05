@@ -17,15 +17,16 @@ const mapDispatchToProps = dispatch =>({
 const HotelCard = (props) =>{
      const [count,setCount]  = useState(0)
      const url = "https://images.oyoroomscdn.com/uploads/hotel_image/42870/xlarge/6c5ec7192f0d94cd.jpg"
-     const {hotel,dispatch} = props
-     const {HotelName,StarRating,HotelPicture,HotelAddress} = hotel
+     const {hotel,dispatch,navigation} = props
+     const {HotelName,StarRating,HotelPicture,HotelAddress,Price} = hotel
+     const {RoomPriceWoGST} = Price
      const wishlist = () => {
        props.toggleHotel({type:'TOGGLE_WHISHLIST'})
        console.log('oye lucky oye',props)
      }
     return(
         <View>
-            <TouchableOpacity activeOpacity={0.8} onPress={wishlist}
+            <TouchableOpacity onPress={()=> navigation.navigate('HotelDetails',{data:hotel})} activeOpacity={0.8} 
               style={{margin:8,minHeight:150,backgroundColor:'#fff',marginTop:2,}}>
                  
              <Image  style={{ height: 150,width:'auto' }}
@@ -38,12 +39,12 @@ const HotelCard = (props) =>{
 
                 <View style={{padding:8}}>
                     <Text style={{fontSize:16,fontWeight:'500',color:'#000'}}> {HotelName} </Text>
-                    <Text style={{margin:3,color:'#95a5a6',fontSize:12}}>{HotelAddress.substr(0,20)} </Text>
+                    <Text style={{margin:3,color:'#95a5a6',fontSize:12}}>{HotelAddress.substr(0,50)} {HotelAddress.length > 50 ? '...' : ''} </Text>
 
                     <View style={{flexDirection:'row',marginVertical:3}}>
-                      <Text style={{fontSize:18,fontWeight:'500',color:'#000'}}> ₹1225 </Text>
-                      <Text style={{fontSize:14,color:'#95a5a6',textDecorationLine:'line-through'}}> ₹2332 </Text>
-                      <Text style={{fontSize:14,fontWeight:'500',color:'teal'}}> 47% OFF </Text>
+                      <Text style={{fontSize:18,fontWeight:'500',color:'#000'}}> ₹ {RoomPriceWoGST} </Text>
+                      {/* <Text style={{fontSize:14,color:'#95a5a6',textDecorationLine:'line-through'}}> ₹2332 </Text> */}
+                      {/* <Text style={{fontSize:14,fontWeight:'500',color:'teal'}}> 47% OFF </Text> */}
                     </View>
 
 

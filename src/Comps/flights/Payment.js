@@ -68,6 +68,7 @@ export default class Payment extends Component {
                 json: true })
                 .then(response =>{
                 console.log('waiting.....')
+                console.warn(response.data)
                 // console.log(response.data); // ex.: { user: 'Your User'}
                 // console.log(response.status,'hello',response.data.Search.FlightDataList.JourneyList[0].length); // ex.: 200
                 let BookingDetails = response.data.Status ?  response.data.CommitBooking.BookingDetails : null

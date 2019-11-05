@@ -1,6 +1,6 @@
 import {createAppContainer,createStackNavigator,createSwitchNavigator,createBottomTabNavigator} from 'react-navigation'
 // import FlightList from './src/flights/FlightList';
-import {View,Text} from 'react-native'
+import {View,Text,TouchableOpacity} from 'react-native'
 import React from 'react'
 import FlightList from './src/Comps/flights/FlightList';
 import Home from './src/Comps/Tabs/Home';
@@ -8,26 +8,39 @@ import SearchPlace from './src/Comps/Location/SearchPlace';
 import SearchFlight from './src/Comps/flights/SearchFLight';
 import FlightStack from './src/Comps/flights';
 import HotelStack from './src/Comps/Hotels';
+import {strings} from './src/Comps/assets'
+import Account from './src/Comps/Tabs/Account';
+import Wallet from './src/Comps/Tabs/Wallet';
+import {Icon} from 'native-base'
+import AuthStack from './src/Comps/Auth';
+let {dColor,darktext,lightTeal} = strings
 
 // const Home = () => <View style={{flex:1,justifyContent:'center',alignItems:'center'}}><Text>home</Text> </View>
 
 const TabNavigator = createBottomTabNavigator({
-  Home: Home,
-  Profile: Home,
-  Wallet : Home
+
+  Account: Account,
+  // Home: Home,
+  // Wallet : Wallet,
 },{
-  navigationOptions : {header:null}
+  defaultNavigationOptions : {header:null},
+  tabBarOptions: {
+    activeTintColor: lightTeal,
+    inactiveTintColor: darktext,
+  }
 })
 
 const App = createStackNavigator({
   
   // Home : TabNavigator,
-  // Autocomplete : SearchPlace,
+  Autocomplete : SearchPlace,
   Hotels : HotelStack,
-  Flights : FlightStack
+  Flights : FlightStack,
+  AuthStack: AuthStack,
 },{
   defaultNavigationOptions:{
-    header:null
+    header:null,
+   
   }
 })
 

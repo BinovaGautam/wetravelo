@@ -40,7 +40,7 @@ export default class TravellerForm extends Component {
     }
     submit = () =>{
         this.setState({submit:true})
-        alert(JSON.stringify(this.state))
+        // alert(JSON.stringify(this.state))
         let {FirstName,LastName,DateOfBirth,CountryName,CountryCode,gender,nationality,date,index} = this.state
         if(FirstName && LastName && DateOfBirth && nationality && gender){
             let {navigation} = this.props

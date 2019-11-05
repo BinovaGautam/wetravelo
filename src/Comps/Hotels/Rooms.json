@@ -1,0 +1,280 @@
+{
+    "Status": 1,
+    "Message": "",
+    "RoomList": {
+        "GetHotelRoomResult": {
+            "HotelRoomsDetails": [
+                {
+                    "RoomIndex": 0,
+                    "ChildCount": 0,
+                    "RoomTypeName": "1 X Standard Room",
+                    "Price": {
+                        "TBO_RoomPrice": 1106.86,
+                        "TBO_OfferedPriceRoundedOff": 1246,
+                        "TBO_PublishedPrice": 1255.6,
+                        "TBO_PublishedPriceRoundedOff": 1256,
+                        "Tax": 134,
+                        "ExtraGuestCharge": 0,
+                        "ChildCharge": 0,
+                        "OtherCharges": 4.91,
+                        "Discount": 0,
+                        "PublishedPrice": 1246,
+                        "RoomPrice": 1246,
+                        "PublishedPriceRoundedOff": 1246,
+                        "OfferedPrice": 1245.77,
+                        "OfferedPriceRoundedOff": 1246,
+                        "AgentCommission": 9.82,
+                        "AgentMarkUp": 0,
+                        "ServiceTax": 0.7,
+                        "TDS": 4.21,
+                        "ServiceCharge": 0,
+                        "TotalGSTAmount": 0.7,
+                        "RoomPriceWoGST": 1246,
+                        "GSTPrice": 0,
+                        "CurrencyCode": "INR"
+                    },
+                    "SmokingPreference": "NoPreference",
+                    "RatePlanCode": "455008||c91f3409-da75-f627-1e14-e0569ce4febb",
+                    "RoomTypeCode": "3417269|c91f3409-da75-f627-1e14-e0569ce4febb|1^^1^^455008||c91f3409-da75-f627-1e14-e0569ce4febb~!:~1~!:~1",
+                    "Amenities": [],
+                    "OtherAmennities": [],
+                    "room_only": "room only",
+                    "cancellation_policy_code": "",
+                    "LastCancellationDate": "2019-11-10",
+                    "CancellationPolicies": [
+                        {
+                            "Charge": 1246,
+                            "ChargeType": 1,
+                            "FromDate": "2019-11-11",
+                            "ToDate": "2019-11-27",
+                            "Currency": "INR"
+                        },
+                        {
+                            "Charge": 0,
+                            "ChargeType": 1,
+                            "FromDate": "2019-10-29",
+                            "ToDate": "2019-11-10"
+                        }
+                    ],
+                    "CancellationPolicy": "Standard Room#^#No cancellation charge, If cancelled between 29-Oct-2019 00:00:00 and 12-Nov-2019 23:59:59.|100.00% of total amount will be charged, If cancelled between 13-Nov-2019 00:00:00 and 16-Nov-2019 23:59:59.|100.00% of total amount will be charged, If cancelled between 17-Nov-2019 00:00:00 and 28-Nov-2019 23:59:59.|#!#",
+                    "rate_key": 1,
+                    "group_code": "455008||c91f3409-da75-f627-1e14-e0569ce4febb",
+                    "room_code": "455008||c91f3409-da75-f627-1e14-e0569ce4febb",
+                    "HOTEL_CODE": "1367617",
+                    "SEARCH_ID": "387087f9-28b7-4869-9609-57bc97fd3ae6",
+                    "RoomUniqueId": "a9d3b7ab95b5a7e44e8a0ecfcd4eaf49*_*138*_*oJxraUBQY8OBEVDh"
+                },
+                {
+                    "RoomIndex": 1,
+                    "ChildCount": 0,
+                    "RoomTypeName": "1 X Standard Room",
+                    "Price": {
+                        "TBO_RoomPrice": 1183.47,
+                        "TBO_OfferedPriceRoundedOff": 1332,
+                        "TBO_PublishedPrice": 1341.33,
+                        "TBO_PublishedPriceRoundedOff": 1341,
+                        "Tax": 143.12,
+                        "ExtraGuestCharge": 0,
+                        "ChildCharge": 0,
+                        "OtherCharges": 4.91,
+                        "Discount": 0,
+                        "PublishedPrice": 1332,
+                        "RoomPrice": 1332,
+                        "PublishedPriceRoundedOff": 1332,
+                        "OfferedPrice": 1331.51,
+                        "OfferedPriceRoundedOff": 1332,
+                        "AgentCommission": 9.82,
+                        "AgentMarkUp": 0,
+                        "ServiceTax": 0.7,
+                        "TDS": 4.21,
+                        "ServiceCharge": 0,
+                        "TotalGSTAmount": 0.7,
+                        "RoomPriceWoGST": 1332,
+                        "GSTPrice": 0,
+                        "CurrencyCode": "INR"
+                    },
+                    "SmokingPreference": "NoPreference",
+                    "RatePlanCode": "455007||5d1373d2-727a-e0a1-c233-ba2da55b8ed6",
+                    "RoomTypeCode": "3417269|5d1373d2-727a-e0a1-c233-ba2da55b8ed6|1^^1^^455007||5d1373d2-727a-e0a1-c233-ba2da55b8ed6~!:~2~!:~1",
+                    "Amenities": [
+                        "BREAKFAST"
+                    ],
+                    "OtherAmennities": [],
+                    "room_only": "room only",
+                    "cancellation_policy_code": "",
+                    "LastCancellationDate": "2019-11-10",
+                    "CancellationPolicies": [
+                        {
+                            "Charge": 1332,
+                            "ChargeType": 1,
+                            "FromDate": "2019-11-11",
+                            "ToDate": "2019-11-27",
+                            "Currency": "INR"
+                        },
+                        {
+                            "Charge": 0,
+                            "ChargeType": 1,
+                            "FromDate": "2019-10-29",
+                            "ToDate": "2019-11-10"
+                        }
+                    ],
+                    "CancellationPolicy": "Standard Room#^#No cancellation charge, If cancelled between 29-Oct-2019 00:00:00 and 12-Nov-2019 23:59:59.|100.00% of total amount will be charged, If cancelled between 13-Nov-2019 00:00:00 and 16-Nov-2019 23:59:59.|100.00% of total amount will be charged, If cancelled between 17-Nov-2019 00:00:00 and 28-Nov-2019 23:59:59.|#!#",
+                    "rate_key": 2,
+                    "group_code": "455007||5d1373d2-727a-e0a1-c233-ba2da55b8ed6",
+                    "room_code": "455007||5d1373d2-727a-e0a1-c233-ba2da55b8ed6",
+                    "HOTEL_CODE": "1367617",
+                    "SEARCH_ID": "387087f9-28b7-4869-9609-57bc97fd3ae6",
+                    "RoomUniqueId": "a9d3b7ab95b5a7e44e8a0ecfcd4eaf49*_*139*_*fAsHPBUlWIkT03d8"
+                },
+                {
+                    "RoomIndex": 2,
+                    "ChildCount": 0,
+                    "RoomTypeName": "1 X Deluxe Room",
+                    "Price": {
+                        "TBO_RoomPrice": 1362.52,
+                        "TBO_OfferedPriceRoundedOff": 1532,
+                        "TBO_PublishedPrice": 1542.12,
+                        "TBO_PublishedPriceRoundedOff": 1542,
+                        "Tax": 164.87,
+                        "ExtraGuestCharge": 0,
+                        "ChildCharge": 0,
+                        "OtherCharges": 4.91,
+                        "Discount": 0,
+                        "PublishedPrice": 1532,
+                        "RoomPrice": 1532,
+                        "PublishedPriceRoundedOff": 1532,
+                        "OfferedPrice": 1532.3,
+                        "OfferedPriceRoundedOff": 1532,
+                        "AgentCommission": 9.82,
+                        "AgentMarkUp": 0,
+                        "ServiceTax": 0.7,
+                        "TDS": 4.21,
+                        "ServiceCharge": 0,
+                        "TotalGSTAmount": 0.7,
+                        "RoomPriceWoGST": 1532,
+                        "GSTPrice": 0,
+                        "CurrencyCode": "INR"
+                    },
+                    "SmokingPreference": "NoPreference",
+                    "RatePlanCode": "455008||fe1f3651-485f-4c55-ab29-b447de388188",
+                    "RoomTypeCode": "3417270|fe1f3651-485f-4c55-ab29-b447de388188|1^^1^^455008||fe1f3651-485f-4c55-ab29-b447de388188~!:~3~!:~1",
+                    "Amenities": [],
+                    "OtherAmennities": [],
+                    "room_only": "room only",
+                    "cancellation_policy_code": "",
+                    "LastCancellationDate": "2019-11-10",
+                    "CancellationPolicies": [
+                        {
+                            "Charge": 1532,
+                            "ChargeType": 1,
+                            "FromDate": "2019-11-11",
+                            "ToDate": "2019-11-27",
+                            "Currency": "INR"
+                        },
+                        {
+                            "Charge": 0,
+                            "ChargeType": 1,
+                            "FromDate": "2019-10-29",
+                            "ToDate": "2019-11-10"
+                        }
+                    ],
+                    "CancellationPolicy": "Deluxe Room#^#No cancellation charge, If cancelled between 29-Oct-2019 00:00:00 and 12-Nov-2019 23:59:59.|100.00% of total amount will be charged, If cancelled between 13-Nov-2019 00:00:00 and 16-Nov-2019 23:59:59.|100.00% of total amount will be charged, If cancelled between 17-Nov-2019 00:00:00 and 28-Nov-2019 23:59:59.|#!#",
+                    "rate_key": 3,
+                    "group_code": "455008||fe1f3651-485f-4c55-ab29-b447de388188",
+                    "room_code": "455008||fe1f3651-485f-4c55-ab29-b447de388188",
+                    "HOTEL_CODE": "1367617",
+                    "SEARCH_ID": "387087f9-28b7-4869-9609-57bc97fd3ae6",
+                    "RoomUniqueId": "a9d3b7ab95b5a7e44e8a0ecfcd4eaf49*_*140*_*9V2zAlpTTSpwMQMk"
+                },
+                {
+                    "RoomIndex": 3,
+                    "ChildCount": 0,
+                    "RoomTypeName": "1 X Deluxe Room",
+                    "Price": {
+                        "TBO_RoomPrice": 1439.13,
+                        "TBO_OfferedPriceRoundedOff": 1619,
+                        "TBO_PublishedPrice": 1628.55,
+                        "TBO_PublishedPriceRoundedOff": 1629,
+                        "Tax": 174.69,
+                        "ExtraGuestCharge": 0,
+                        "ChildCharge": 0,
+                        "OtherCharges": 4.91,
+                        "Discount": 0,
+                        "PublishedPrice": 1619,
+                        "RoomPrice": 1619,
+                        "PublishedPriceRoundedOff": 1619,
+                        "OfferedPrice": 1618.73,
+                        "OfferedPriceRoundedOff": 1619,
+                        "AgentCommission": 9.82,
+                        "AgentMarkUp": 0,
+                        "ServiceTax": 0.7,
+                        "TDS": 4.21,
+                        "ServiceCharge": 0,
+                        "TotalGSTAmount": 0.7,
+                        "RoomPriceWoGST": 1619,
+                        "GSTPrice": 0,
+                        "CurrencyCode": "INR"
+                    },
+                    "SmokingPreference": "NoPreference",
+                    "RatePlanCode": "455007||cee47035-2e5f-efdd-8073-328e3095043b",
+                    "RoomTypeCode": "3417270|cee47035-2e5f-efdd-8073-328e3095043b|1^^1^^455007||cee47035-2e5f-efdd-8073-328e3095043b~!:~4~!:~1",
+                    "Amenities": [
+                        "BREAKFAST"
+                    ],
+                    "OtherAmennities": [],
+                    "room_only": "room only",
+                    "cancellation_policy_code": "",
+                    "LastCancellationDate": "2019-11-10",
+                    "CancellationPolicies": [
+                        {
+                            "Charge": 1619,
+                            "ChargeType": 1,
+                            "FromDate": "2019-11-11",
+                            "ToDate": "2019-11-27",
+                            "Currency": "INR"
+                        },
+                        {
+                            "Charge": 0,
+                            "ChargeType": 1,
+                            "FromDate": "2019-10-29",
+                            "ToDate": "2019-11-10"
+                        }
+                    ],
+                    "CancellationPolicy": "Deluxe Room#^#No cancellation charge, If cancelled between 29-Oct-2019 00:00:00 and 12-Nov-2019 23:59:59.|100.00% of total amount will be charged, If cancelled between 13-Nov-2019 00:00:00 and 16-Nov-2019 23:59:59.|100.00% of total amount will be charged, If cancelled between 17-Nov-2019 00:00:00 and 28-Nov-2019 23:59:59.|#!#",
+                    "rate_key": 4,
+                    "group_code": "455007||cee47035-2e5f-efdd-8073-328e3095043b",
+                    "room_code": "455007||cee47035-2e5f-efdd-8073-328e3095043b",
+                    "HOTEL_CODE": "1367617",
+                    "SEARCH_ID": "387087f9-28b7-4869-9609-57bc97fd3ae6",
+                    "RoomUniqueId": "a9d3b7ab95b5a7e44e8a0ecfcd4eaf49*_*141*_*0hTUwpBykLAj5RuY"
+                }
+            ],
+            "RoomCombinations": {
+                "InfoSource": "FixedCombination",
+                "IsPolicyPerStay": false,
+                "RoomCombination": [
+                    {
+                        "RoomIndex": [
+                            0
+                        ]
+                    },
+                    {
+                        "RoomIndex": [
+                            1
+                        ]
+                    },
+                    {
+                        "RoomIndex": [
+                            2
+                        ]
+                    },
+                    {
+                        "RoomIndex": [
+                            3
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -10,9 +10,12 @@ const darktext = "#303133"
 const dColor = "#026C70"
 
 export default class SearchFlight extends Component {
-    static navigationOptions = {
-        title:'Search Flight'
-    }
+    static navigationOptions = ({navigation})=> ({
+        title:'Search Flight',
+        headerLeft: <TouchableOpacity style={{justifyContent:'center',height:48,width:48,borderRadius:24}} activeOpacity={0.6}>
+                            <Icon name="arrowleft" type='AntDesign' style={{textAlign:'center'}} onPress={()=>navigation.navigate('Home')} />
+                    </TouchableOpacity>
+    })
     constructor(props){
         super(props)
         this.state={type:'OneWay',CabinClass:'Economy',travellers:1,cabin:false}

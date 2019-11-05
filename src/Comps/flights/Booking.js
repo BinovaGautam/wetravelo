@@ -3,7 +3,7 @@ import { Text, View ,StatusBar,Image,Dimensions,TouchableOpacity,ScrollView,Plat
 import { Icon ,Card,CardItem,Right,CheckBox,Body,ListItem,Form, Item, Input, Label} from 'native-base'
 import { iOSUIKit } from 'react-native-typography'
 import Snackbar from 'react-native-snackbar'
-import {strings} from '../assets'
+import {strings, Loader} from '../assets'
 import axios from 'axios'
 
 // import HTML from 'react-native-render-html';
@@ -48,7 +48,7 @@ export default class Booking extends Component {
             // console.log(response.status,'hello',response.data.Search.FlightDataList.JourneyList[0].length); // ex.: 200
             let JourneyList = response.data.Status ?  response.data.UpdateFareQuote.FareQuoteDetails.JourneyList : null
             // if(JourneyDetails.length) this.setState({type:'RoundTrip'})
-            JourneyList ?  this.setState({JourneyList,loading:false}) : alert('Failded,  Try Again')
+            JourneyList ?  this.setState({JourneyList,loading:false}) : alert('Failed, Booking cannot proceed try again')
     
             console.log(response.data)
             }).catch(err =>{
@@ -79,7 +79,7 @@ export default class Booking extends Component {
         let {navigation} = this.props
         if(Passengers && phone && email && JourneyList ){
               Passengers.map((Passenger,id)=>{
-                  let obj = {ContactNo: phone , Title: 'Mr' ,City:'Delhi',PinCode:'110007',AddressLine1:'wahi pe',Email:email}
+                  let obj = {ContactNo: phone ,IsLeadPax:'1', Title: 'Mr' ,City:'Delhi',PinCode:'110007',AddressLine1:'wahi pe',Email:email}
                   Object.assign(Passenger,obj)
                   if(id+1 == Passengers.length) navigation.navigate('Payment',{JourneyList,Passengers})
               })
@@ -97,7 +97,7 @@ export default class Booking extends Component {
         let {navigation} = this.props
         let data = navigation.getParam('data',{})
         let ios = Platform.OS === 'ios' ? true : false
-        let {travellers,submit,phone,email} =  this.state
+        let {travellers,submit,phone,email,loading} =  this.state
         return (
             <View style={{flex:1}}>
                 <StatusBar translucent={true} backgroundColor="#fff" barStyle="dark-content"/>
@@ -121,6 +121,8 @@ export default class Booking extends Component {
                                           <Input keyboardType='numeric' autoCapitalize="words" value={phone || ''} onChangeText={name =>{this.setState({phone:name})}} />
                                           </Item>
                             </Form>   
+
+                            {loading ? <Loader/> : null}
 
                            
 
