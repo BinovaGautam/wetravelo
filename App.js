@@ -4,7 +4,6 @@ import {View,Text,TouchableOpacity} from 'react-native'
 import React from 'react'
 import FlightList from './src/Comps/flights/FlightList';
 import Home from './src/Comps/Tabs/Home';
-import SearchPlace from './src/Comps/Location/SearchPlace';
 import SearchFlight from './src/Comps/flights/SearchFLight';
 import FlightStack from './src/Comps/flights';
 import HotelStack from './src/Comps/Hotels';
@@ -20,8 +19,8 @@ let {dColor,darktext,lightTeal} = strings
 const TabNavigator = createBottomTabNavigator({
 
   Account: Account,
-  // Home: Home,
-  // Wallet : Wallet,
+  Home: Home,
+  Wallet : Wallet,
 },{
   defaultNavigationOptions : {header:null},
   tabBarOptions: {
@@ -32,8 +31,7 @@ const TabNavigator = createBottomTabNavigator({
 
 const App = createStackNavigator({
   
-  // Home : TabNavigator,
-  Autocomplete : SearchPlace,
+  Home : TabNavigator,
   Hotels : HotelStack,
   Flights : FlightStack,
   AuthStack: AuthStack,

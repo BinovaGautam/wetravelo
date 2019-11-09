@@ -6,6 +6,7 @@ import DetailCard from './DetailCard.js'
 import {Loader} from '../assets'
 import axios from 'axios'
 import MultipleCard from './MultipleCard.js'
+import LottieView from 'lottie-react-native';
 // const FlightData = require('./FlightData.json')
 const mapStateToProps = state =>({
   counter : state.counter,
@@ -34,23 +35,23 @@ componentDidMount() {
         "AdultCount": "1",
         "ChildCount": "0",
         "InfantCount": "0",
-        "JourneyType": "Return",
+        "JourneyType": "OneWay",
         "PreferredAirlines": [
-        "AI"
+        "SG"
         ],
-        "CabinClass": "First",
+        "CabinClass": "Economy",
         "Segments": [
+        
         {
-        "Origin": "BOM",
-        "Destination": "DXB",
-        "DepartureDate": "2019-11-20T00:00:00",
-        "ReturnDate": "2019-11-24T00:00:00"
+        "Origin": "DEL",
+        "Destination": "BOM",
+        "DepartureDate": "2019-11-22T00:00:00"
         }
         ]
         })
     let type = this.props.navigation.getParam('type','OneWay')
     this.setState({type})
-    // alert(JSON.stringify(data))
+    alert(JSON.stringify(data))
     axios({
         url: 'http://test.services.travelomatix.com/webservices/index.php/flight/service/Search',
         method: 'POST',
@@ -65,15 +66,15 @@ componentDidMount() {
         data:data,
         json: true })
         .then(response =>{
-        console.log('waiting.....')
+        console.warn('waiting.....')
         // console.log(response.data); // ex.: { user: 'Your User'}
         // console.log(response.status,'hello',response.data.Search.FlightDataList.JourneyList[0].length); // ex.: 200
-        let JourneyList = response.data.Search.FlightDataList.JourneyList
+        let JourneyList = response.data.status ? response.data.Search.FlightDataList.JourneyList : alert(response.data.Message||'Internal Server Error')
         // if(JourneyDetails.length) this.setState({type:'RoundTrip'})
         this.setState({JourneyList,loading:false})
 
         console.log(response.data)
-        });  
+        }).catch(err => console.warn(err))  
 }
 
     render() {
@@ -82,7 +83,7 @@ componentDidMount() {
         return (
             <View style={{flex:1,marginTop:24,}}>
                 <StatusBar translucent={true} backgroundColor="#fff" barStyle="dark-content"/>
-                {loading ? <Loader/> : null}
+                {loading ? <LottieView source={require('../assets/lottie/10398-plane-window.json')} autoPlay loop /> : null}
                 {/* <View style={{height:50,elevation:3,backgroundColor:'#fff'}}></View>
                 <View style={{height:50,elevation:3,backgroundColor:'#ddd'}}></View> */}
                 <View style={{flexDirection:'row'}}></View>
