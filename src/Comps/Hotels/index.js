@@ -14,9 +14,9 @@ let ios = Platform.OS === 'ios' ? true : false
 
 let HotelStack = createStackNavigator({
     
-   Autocomplete : SearchPlace,
-    SelectDateRange : SelectDateRange,
-    SelectGuests : SelectGuests,
+//    Autocomplete : SearchPlace,
+//     SelectDateRange : SelectDateRange,
+//     SelectGuests : SelectGuests,
     HotelsList : HotelsLIst,
     HotelDetails : HotelDetails,
     RoomList: RoomList,

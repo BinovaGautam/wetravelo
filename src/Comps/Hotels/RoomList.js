@@ -30,7 +30,7 @@ export default class RoomList extends Component {
     }
     
     render() {
-        let {HotelRoomsDetails,RoomCombinations,loading,group} = this.state
+        let {HotelRoomsDetails,RoomCombinations,loading,group,} = this.state
         return (
             <View style={{flex:1}}>
                  <StatusBar translucent={true} barStyle="dark-content" backgroundColor="#fff"/>
@@ -42,14 +42,20 @@ export default class RoomList extends Component {
                   <View key={id} style={{margin:8,borderBottomWidth:0.6,borderColor:'#ddd'}}>
                         <Text style={[{fontSize:22,fontWeight:'500',color:dColor,fontFamily:ios?'Optima':'sans-serif-medium',margin:8} ]}>{key.toUpperCase()} </Text>
                         {group[key].map((hotel,index)=>{
-                            let {Price} = hotel
+                            let {Price,CancellationPolicy} = hotel
                             let {OfferedPriceRoundedOff,PublishedPriceRoundedOff} = Price
                             return(
                                 <TouchableOpacity activeOpacity={0.8}
                                  key={index} style={{margin:5,borderTopWidth:0.4,borderColor:'#ddd'}}>
-                                     <Text style={{fontSize:18,fontWeight:'500',color:darktext}}> ₹ {OfferedPriceRoundedOff} </Text>
-                                     {PublishedPriceRoundedOff && PublishedPriceRoundedOff == OfferedPriceRoundedOff
+                                     <Text style={{fontSize:22,fontWeight:'500',color:darktext,letterSpacing:1}}> ₹ {OfferedPriceRoundedOff} </Text>
+                                     {PublishedPriceRoundedOff && PublishedPriceRoundedOff > OfferedPriceRoundedOff
                                          ? <Text style={{fontSize:14,color:'#95a5a6',textDecorationLine:'line-through'}}> ₹ {PublishedPriceRoundedOff} </Text>:null}
+
+                                         <View style={{margin:8,}}>
+                                             <Text style={{fontSize:16,color:pink,fontWeight:'500',letterSpacing:1}}>Cancellation Policy</Text>
+                                             <Text style={{color:darktext,fontWeight:'500',letterSpacing:1}}>{CancellationPolicy.slice(0,100)}</Text>
+                                             
+                                         </View>
                  
                                 </TouchableOpacity>
                             )

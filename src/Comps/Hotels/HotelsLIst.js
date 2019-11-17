@@ -11,12 +11,15 @@ import {strings} from '../assets'
 
 let {dColor,darktext} = strings
 
-// const Hotels = require('./HotelsList.json')
+const Hotels = require('./HotelsList.json')
 
 
 export default class HotelsLIst extends Component {
     static navigationOptions = ({navigation}) => ({
         title:'Hotels',
+        // headerLeft: <TouchableOpacity style={{height:40,width:40,backgroundColor:dColor,margin:10}} onPress={()=>navigation.navigate('Home')} >
+        //     <Text>B</Text>
+        // </TouchableOpacity>
        })
     constructor(props){
         super(props)
@@ -34,7 +37,7 @@ export default class HotelsLIst extends Component {
          let {city_code,country_code} = citydetails 
          let {lat,lng} = address.geometry.location
          let date = new Date(CheckInDate)
-         let chekin_date =`${date.getDate()}-${date.getMonth()+1}- ${date.getFullYear()}`
+         let chekin_date =`${date.getDate()}-${date.getMonth()+1}-${date.getFullYear()}`
            let data = {
                 CheckInDate: chekin_date ||  "27-11-2019",
                 NoOfNights: NoOfNights || 2,
@@ -47,7 +50,7 @@ export default class HotelsLIst extends Component {
                 ]
         }
 
-        // alert(JSON.stringify(data))
+        console.log(data)
       
             axios({
                 url: 'http://test.services.travelomatix.com/webservices/index.php/hotel_v3/service/Search',
@@ -65,6 +68,7 @@ export default class HotelsLIst extends Component {
                 .then(response =>{
                 console.log('waiting.....')
                  let Hotels = response.data
+                 console.log(Hotels.Status,'status')
                 //  alert(JSON.stringify(Hotels))
                  if(Hotels.Status){
                     let HotelResults = Hotels.Search.HotelSearchResult.HotelResults
@@ -77,10 +81,10 @@ export default class HotelsLIst extends Component {
                    return bool
                   }
                     )
-                    // this.setState({HotelResults,loading:false })
+                    this.setState({HotelResults,loading:false })
                     // navigation.navigate('HotelDetails',{data:HotelResults[5]})
                 }else{
-                    alert('Internal Server Error.')
+                    alert(Hotels.Message || 'Internal Server Error.')
                     this.setState({loading:false})
                 }
                 }).catch(err =>{
@@ -91,6 +95,23 @@ export default class HotelsLIst extends Component {
 
     componentDidMount = () => {
     //   alert(Hotels.Status)
+    // if(Hotels.Status){
+    //     let HotelResults = Hotels.Search.HotelSearchResult.HotelResults
+    //     HotelResults = HotelResults.filter((hotel)=> {
+    //       let bool = isPointWithinRadius(
+    //         { latitude: parseFloat(hotel.Latitude), longitude: parseFloat(hotel.Longitude)},
+    //         { latitude: 12.95967, longitude:  77.64886 },
+    //         5000
+    //     )
+    //    return bool
+    //   }
+    //     )
+    //     this.setState({HotelResults,loading:false })
+    //     // navigation.navigate('HotelDetails',{data:HotelResults[5]})
+    // }else{
+    //     alert('Internal Server Error.')
+    //     this.setState({loading:false})
+    // }
 
      this.getHotelsList()
     };
@@ -105,12 +126,12 @@ export default class HotelsLIst extends Component {
                     {!loading ? HotelResults.length  ?
                         <ScrollView style={{flex:1}}>
                             { HotelResults.map((hotel,id)=>
-                            <HotelCard navigation={navigation}  hotel={hotel} key={id}   />
+                            <HotelCard navigation={navigation}  hotel={hotel} key={id} index={id}   />
                             ) }
                         </ScrollView>
                      : 
                      <View style={{flex:1,justifyContent:'center'}}>
-                         <Text style={{marign:10,textAlign:'center',color:darktext,fontSize:24,fontWeight:'500',letterSpacing:0}}>
+                         <Text style={{marginHorizontal:50,textAlign:'center',color:darktext,fontSize:24,fontWeight:'500',letterSpacing:0}}>
                              No Hotels Found In The Area You Are Looking For.
                          </Text>
                      </View>

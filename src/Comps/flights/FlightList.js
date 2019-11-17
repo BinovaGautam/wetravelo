@@ -32,31 +32,31 @@ componentDidMount() {
     //  this.props.navigation.navigate('JourneyDetails',{fdata:JourneyList[0][0]})
 
     let data = this.props.navigation.getParam('data',{
-        "AdultCount": "1",
-        "ChildCount": "0",
-        "InfantCount": "0",
-        "JourneyType": "OneWay",
-        "PreferredAirlines": [
+        AdultCount: 1,
+        ChildCount: 0,
+        InfantCount: 0,
+        JourneyType: "OneWay",
+        PreferredAirlines: [
         "SG"
         ],
-        "CabinClass": "Economy",
-        "Segments": [
+        CabinClass: "Economy",
+        Segments: [
         
         {
-        "Origin": "DEL",
-        "Destination": "BOM",
-        "DepartureDate": "2019-11-22T00:00:00"
+        Origin: "DEL",
+        Destination: "BOM",
+        DepartureDate: "2019-11-22T00:00:00"
         }
         ]
         })
     let type = this.props.navigation.getParam('type','OneWay')
     this.setState({type})
-    alert(JSON.stringify(data))
+    // console.log(data)
     axios({
         url: 'http://test.services.travelomatix.com/webservices/index.php/flight/service/Search',
         method: 'POST',
         headers: 
-        { 'Postman-Token': 'eac38801-9d91-407e-be63-f9f19006d0af',
+        { 
             'cache-control': 'no-cache',
             'Content-Type': 'application/json',
             'x-Password': 'test@229',
@@ -69,11 +69,12 @@ componentDidMount() {
         console.warn('waiting.....')
         // console.log(response.data); // ex.: { user: 'Your User'}
         // console.log(response.status,'hello',response.data.Search.FlightDataList.JourneyList[0].length); // ex.: 200
-        let JourneyList = response.data.status ? response.data.Search.FlightDataList.JourneyList : alert(response.data.Message||'Internal Server Error')
+        let JourneyList = response.data.Status ? response.data.Search.FlightDataList.JourneyList : alert(response.data.Message||'Internal Server Error')
+        // console.log(response)
         // if(JourneyDetails.length) this.setState({type:'RoundTrip'})
         this.setState({JourneyList,loading:false})
 
-        console.log(response.data)
+        // console.log(response.data)
         }).catch(err => console.warn(err))  
 }
 

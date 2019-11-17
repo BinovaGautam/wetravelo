@@ -53,6 +53,7 @@ export default class Payment extends Component {
         if(ResultToken && Passengers) {
             let obj = {AppReference:'BIN12-154127-883271',SequenceNumber:0,ResultToken,Passengers}
             this.setState({loading:true})
+            console.warn(obj)
             axios({
                 url: 'http://test.services.travelomatix.com/webservices/index.php/flight/service/CommitBooking',
                 method: 'POST',

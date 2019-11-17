@@ -31,7 +31,7 @@ const TabNavigator = createBottomTabNavigator({
 
 const App = createStackNavigator({
   
-  Home : TabNavigator,
+  // Home : TabNavigator,
   Hotels : HotelStack,
   Flights : FlightStack,
   AuthStack: AuthStack,

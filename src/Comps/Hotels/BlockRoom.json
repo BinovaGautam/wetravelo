@@ -1,0 +1,128 @@
+{
+    "Status": 1,
+    "Message": "",
+    "BlockRoom": {
+        "BlockRoomResult": {
+            "HotelRoomsDetails": [
+                {
+                    "ChildCount": 0,
+                    "RequireAllPaxDetails": false,
+                    "RoomId": 0,
+                    "RoomStatus": 0,
+                    "RoomIndex": 0,
+                    "RoomTypeCode": "200015084|2|1",
+                    "RoomDescription": "<p><strong>1 Queen Bed</strong></p><p><b>Entertainment</b> - Cable channels </p><p><b>Food & Drink</b> - Room service</p><p><b>Bathroom</b> - Shared bathroom, in-room sink, and free toiletries</p><p><b>Practical</b> - Safe, desk, and phone</p><p><b>Comfort</b> - Air conditioning</p><p>Smoking And Non-Smoking</p>&nbsp;",
+                    "RoomTypeName": "1 X Royal Suite, 1 Queen Bed",
+                    "RatePlanCode": "204326920",
+                    "RatePlan": 13,
+                    "RatePlanName": "Royal Suite, 1 Queen Bed",
+                    "InfoSource": "FixedCombination",
+                    "SequenceNo": "EA~~346168~2",
+                    "IsPerStay": false,
+                    "SupplierPrice": null,
+                    "Price": {
+                        "TBO_RoomPrice": 8231.7,
+                        "TBO_OfferedPriceRoundedOff": 13735,
+                        "TBO_PublishedPrice": 13735.02,
+                        "TBO_PublishedPriceRoundedOff": 13735,
+                        "Tax": 1451.32,
+                        "ExtraGuestCharge": 4000,
+                        "ChildCharge": 0,
+                        "OtherCharges": 52,
+                        "Discount": 0,
+                        "PublishedPrice": 13735,
+                        "RoomPrice": 13735,
+                        "PublishedPriceRoundedOff": 13735,
+                        "OfferedPrice": 13735.02,
+                        "OfferedPriceRoundedOff": 13735,
+                        "AgentCommission": 0,
+                        "AgentMarkUp": 0,
+                        "ServiceTax": 9.36,
+                        "TDS": 0,
+                        "ServiceCharge": 0,
+                        "TotalGSTAmount": 9.36,
+                        "RoomPriceWoGST": 13735,
+                        "GSTPrice": 0,
+                        "CurrencyCode": "INR"
+                    },
+                    "RoomPromotion": "",
+                    "Amenities": [
+                        "Breakfast Buffet"
+                    ],
+                    "Amenity": [
+                        "Air conditioning",
+                        "Cable TV service",
+                        "Ceiling fan",
+                        "Desk",
+                        "Free toiletries",
+                        "In-room safe",
+                        "Individually decorated",
+                        "Phone",
+                        "Room service (limited hours)",
+                        "Shared bathroom with sink in room",
+                        "Shower/tub combination",
+                        "Smoking and Non-Smoking",
+                        "Soundproofed rooms"
+                    ],
+                    "SmokingPreference": "NoPreference",
+                    "BedTypes": [
+                        {
+                            "BedTypeCode": "15",
+                            "BedTypeDescription": "1 queen bed"
+                        }
+                    ],
+                    "HotelSupplements": [],
+                    "LastCancellationDate": "2019-11-13",
+                    "CancellationPolicies": [
+                        {
+                            "Charge": 13735,
+                            "ChargeType": 1,
+                            "FromDate": "2019-11-14",
+                            "ToDate": "2019-11-27",
+                            "Currency": "INR"
+                        },
+                        {
+                            "Charge": 0,
+                            "ChargeType": 1,
+                            "FromDate": "2019-11-12",
+                            "ToDate": "2019-11-13"
+                        }
+                    ],
+                    "CancellationPolicy": "Royal Suite, 1 Queen Bed#^#No cancellation charge, If cancelled between 12-Nov-2019 00:00:00 and 15-Nov-2019 23:59:59.|100.00% of total amount will be charged, If cancelled between 16-Nov-2019 00:00:00 and 25-Nov-2019 23:59:59.|100.00% of total amount will be charged, If cancelled between 26-Nov-2019 00:00:00 and 29-Nov-2019 23:59:59.|#!#",
+                    "Inclusion": [
+                        "Breakfast Buffet"
+                    ],
+                    "IsPassportMandatory": false,
+                    "IsPANMandatory": true,
+                    "TBO_RoomIndex": 2,
+                    "TBO_RoomTypeName": "Royal Suite, 1 Queen Bed",
+                    "HotelCode": "346168",
+                    "SEARCH_ID": "be079b62-a94e-48dc-adb3-6d7d9abb1bae",
+                    "API_raw_price": 1,
+                    "AccessKey": "xya",
+                    "Boarding_details": [
+                        "Breakfast Buffet"
+                    ],
+                    "TM_Cancellation_Charge": [
+                        {
+                            "Charge": 13735,
+                            "ChargeType": 1,
+                            "FromDate": "2019-11-14",
+                            "ToDate": "2019-11-27",
+                            "Currency": "INR"
+                        },
+                        {
+                            "Charge": 0,
+                            "ChargeType": 1,
+                            "FromDate": "2019-11-12",
+                            "ToDate": "2019-11-13"
+                        }
+                    ]
+                }
+            ],
+            "BlockRoomId": "685704ffc53d930c7cf728a7d39012fe*_*8*_*EBMOdwFLeZP4ajlV",
+            "IsPriceChanged": false,
+            "IsCancellationPolicyChanged": false
+        }
+    }
+}
