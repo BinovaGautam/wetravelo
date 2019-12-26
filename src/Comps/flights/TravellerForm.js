@@ -34,7 +34,7 @@ export default class TravellerForm extends Component {
     
     setDate = date => {
          let sday = new Date(date)
-         DateOfBirth = `${sday.getDate()}-${sday.getMonth()+1}-${sday.getFullYear()}`
+         let  DateOfBirth = `${sday.getFullYear()}-${sday.getMonth()+1}-${sday.getDate()}`
         //  alert(DateOfBirth.toISOString().substr(0,10))
         this.setState({DateOfBirth,date})
     }
@@ -67,6 +67,7 @@ export default class TravellerForm extends Component {
         let {FirstName,LastName,DateOfBirth,gender,nationality,submit,index,mode,date} = this.state
         let {navigation} = this.props
         let title = navigation.getParam('title','Adult')
+        let adult = title === 'Adult'
         let ios = Platform.OS === 'ios' ? true : false
         let travellers = [
                         {title:'Adults',name:'AdultCount',value : 1,description:'Ages Above 12 Years'},
@@ -115,8 +116,8 @@ export default class TravellerForm extends Component {
                                             <TouchableOpacity activeOpacity={0.8}
                                              style={{justifyContent:'center',marginTop:20,borderColor:submit && !DateOfBirth ? pink : lightTeal,margin:15,alignItems:'center',borderRadius:5,borderWidth:2}}>
                                             <DatePicker
-                                            defaultDate={new Date(2018, 4, 4)}
-                                            minimumDate={new Date(1900, 1, 1)}
+                                            defaultDate={new Date()}
+                                            minimumDate={new Date()}
                                             locale={"en"}
                                             timeZoneOffsetInMinutes={undefined}
                                             modalTransparent={false}

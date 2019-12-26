@@ -1,5 +1,8 @@
-const handleClick = (state = {counter:0,name:'gautam'} , action) =>{
-  
+const handleClick = (state = {counter:1,name:'gautam'} , action) =>{
+    switch(action.type){
+        case 'INCREASE':
+            return {...state,counter : state.counter*3}
+    }
     return {...state,name:'jhinga lala hoooo'}
 }
 

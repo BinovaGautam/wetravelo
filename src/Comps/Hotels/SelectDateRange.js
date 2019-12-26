@@ -7,7 +7,7 @@ import {
 import CalendarPicker from 'react-native-calendar-picker';
 import {strings,Loader} from '../assets' 
 import { Icon } from 'native-base';
-import DatepickerRange from 'react-native-range-datepicker';
+import DatepickerRange from 'react-native-scrollable-datepicker';
 
 let {dColor,lightGreen} = strings
 let {height,width} = Dimensions.get('screen')

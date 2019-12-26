@@ -7,13 +7,15 @@ import {strings} from '../assets'
 import DetailCard from './DetailCard'
 import MultipleCard from './MultipleCard'
 import LottieView from 'lottie-react-native';
-let bookingData = require('./Booking.json')
+import firestore from '@react-native-firebase/firestore';
+import {connect} from 'react-redux'
+// let bookingData = require('./Booking.json')
 // import HTML from 'react-native-render-html';
 
 
 let {dColor,darktext,lightTeal,silver} = strings
 
-export default class Confirmation extends Component {
+ class Confirmation extends Component {
     static navigationOptions = { 
         title:''
     }
@@ -22,7 +24,7 @@ export default class Confirmation extends Component {
         super(props)
         this.state ={
             progress: new Animated.Value(0),
-            data : bookingData.CommitBooking.BookingDetails,
+            // data : bookingData.CommitBooking.BookingDetails,
             travellers :  [
                                 {title:'Adults',name:'AdultCount',list:[{FirstName:'Binova'}],value : 1,description:'Ages Above 12 Years'},
                                 {title:'Children',name:'ChildCount',list:[{FirstName:'aliya'}],value : 1,description:'Ages 2 - 12 Years'},
@@ -34,8 +36,14 @@ export default class Confirmation extends Component {
     componentDidMount() {
         let {navigation} = this.props
         navigation.setParams({getList : this.getList})
-        let data = navigation.getParam('data',null)
-        if(data) this.setState({data})
+        let data = navigation.getParam('BookingDetails',null)
+        if(data){
+            this.setState({data})
+            let {user} = this.props.auth || {}
+            let {uid} = user || {}
+
+            firestore().collection('flightBookings').add({...data,uid,bookingTime:Date.now()})
+        }
 
         Animated.timing(this.state.progress, {
             toValue: 1,
@@ -61,8 +69,8 @@ export default class Confirmation extends Component {
         // let data = navigation.getParam('data',{})
         let ios = Platform.OS === 'ios' ? true : false
         let {travellers,submit,phone,email,data,success} =  this.state
-        let {Price,JourneyList,PassengerDetails,BookingId,PNR} = data 
-        let {PassengerBreakup,PriceBreakup,TotalDisplayFare,ResultToken} = Price
+        let {Price,JourneyList,PassengerDetails,BookingId,PNR} = data ? data  : {}
+        let {PassengerBreakup,PriceBreakup,TotalDisplayFare,ResultToken} = Price ? Price : {}
         let Jlist = data ? JourneyList.FlightDetails.Details : []
         let travellersCount = 0
         return (
@@ -167,7 +175,15 @@ export default class Confirmation extends Component {
     }
 }
 
+const mapStateToProps = (state, ownProps) => {
+    return {
+        auth: state.auth
+    }
+}
 
 const styles = StyleSheet.create({
 
 })
+
+
+export default connect(mapStateToProps)(Confirmation)

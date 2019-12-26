@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import { Text, View ,Image,TouchableOpacity} from 'react-native'
 import {Icon} from 'native-base'
+import { strings } from '../assets'
+import getDuration from '../assets/functions/getDuration'
 
-
-let dColor = "#026C70"
+let {dColor,logoApi} = strings
 
 DetailCard = props =>{
     let {data,navigation} = props
@@ -11,13 +12,7 @@ DetailCard = props =>{
     let first = details[0]
     let last = details[details.length - 1]
     let price = data.Price
-    let date  =  new Date(details[details.length-1].Destination.FATV - details[0].Origin.FDTV)
-    let duration = last.Destination.FATV ?  ('0'+date.getHours()).substr(-2) + 'h ' + ('0'+date.getMinutes()).substr(-2)+'m' : ''
-    let depart = new Date("2019-09-27 17:05:00")
-    indigoImg = 'https://pbs.twimg.com/profile_images/1044172604511215616/uUJ06nkr_400x400.jpg',
-    spicejetImg = 'https://lh3.googleusercontent.com/GpBflSe4aTVUKcoM7xVVk0gVMEETdYF3Y_r5cNuwKDFRjnbCdpxW9m-GtyzFueCR2ODK',
-    airInImg = 'https://i.pinimg.com/originals/5f/9b/e5/5f9be5876eda5d373d7f91a8faf5e659.jpg'
-    
+    let duration = getDuration(first.Origin.DateTime,last.Destination.DateTime)
     return(
         <View >
             
@@ -26,8 +21,8 @@ DetailCard = props =>{
             <TouchableOpacity activeOpacity={0.8} onPress={()=>navigation.navigate('JourneyDetails',{data})}
              style={{flexDirection:'row',padding:8}}>
                 <Image 
-                    source={{uri : first.OperatorName == 'SpiceJet' ? spicejetImg : first.OperatorName == "Indigo" ? indigoImg  : airInImg}}
-                        style={{height:35,width:35,alignSelf:'center'}}/>
+                    source={{uri : logoApi+first.OperatorCode}}
+                        style={{height:50,width:50,alignSelf:'center'}}/>
 
                 <View style={{flex:1,justifyContent:'center'}}>
                     <Text style={{fontSize:18,fontWeight:'500',textAlign:'center'}}>{first.Origin.DateTime.substr(-8,5)}</Text>

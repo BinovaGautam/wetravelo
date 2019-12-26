@@ -3,22 +3,18 @@ import { Text, View ,StatusBar,Image,Dimensions,TouchableOpacity,ScrollView} fro
 import { Icon } from 'native-base'
 import {strings} from '../assets'
 
-let {dColor,darktext,silver,lightTeal} = strings
+let {dColor,darktext,silver,lightTeal,logoApi} = strings
 DetailedCard = props =>{
     let {details,index} = props
     
     
-    // let depart = new Date("2019-09-27 17:05:00")
-    indigoImg = 'https://pbs.twimg.com/profile_images/1044172604511215616/uUJ06nkr_400x400.jpg',
-    spicejetImg = 'https://lh3.googleusercontent.com/GpBflSe4aTVUKcoM7xVVk0gVMEETdYF3Y_r5cNuwKDFRjnbCdpxW9m-GtyzFueCR2ODK',
-    airInImg = 'https://i.pinimg.com/originals/5f/9b/e5/5f9be5876eda5d373d7f91a8faf5e659.jpg'
-    
+      noInfoTxt = "No Info Available"
     return(
        <View style={{flex:1}}>
            {details.map((detail,id)=>{
                let {Attr,Origin,Destination,Duration} = detail
                let depart = new Date(Origin.DateTime)
-               let duration =  parseInt(Duration/60) +' H ' + parseInt(Duration%60)+' M'
+               let duration = ('0'+ parseInt(Duration/60)).substr(0,2) +' H ' + ('0'+ parseInt(Duration%60)).substr(0,2)+' M'
             //    alert(JSON.stringify(Origin.DateTime))
                return(
                 <View key={id} style={{margin:5,padding:5}}>
@@ -26,13 +22,13 @@ DetailedCard = props =>{
                     {id ?
                         <View style={{padding:5,margin:20,borderRadius:4,backgroundColor:"#f6e58d",justifyContent:'center'}}>
                             <Text style={{color:dColor,fontWeight:'500',textAlign:'center',fontSize:16}}>
-                                Stopover in {Origin.Cityname || Origin.AirportCode}
+                                Stopover at {Origin.AirportName || Origin.AirportCode}
                             </Text>
                         </View>
                         :null}
                 <View style={{flexDirection:'row'}}>
                     <View style={{backgroundColor:id ?'#000' :lightTeal,justifyContent:'center',paddingHorizontal:10,padding:8,}}>
-                        <Text style={{fontSize:18,textAlign:'center',color:'#fff',fontWeight:'400'}}>{id ? ' NEXT   ' : index ? 'RETRUN' : 'DEPART'}</Text>
+                        <Text style={{fontSize:18,textAlign:'center',color:'#fff',fontWeight:'400',letterSpacing:1}}>{id ? ' NEXT   ' : index ? 'RETRUN' : 'DEPART'}</Text>
                         {/* <Text style={{textAlign:'center',color:'#fff',fontWeight:'500'}}>29 SEPT  </Text> */}
                     </View>
     
@@ -47,8 +43,8 @@ DetailedCard = props =>{
     
                 <View style={{flexDirection:'row',padding:8}}>
                     <Image 
-                        source={{uri : detail.OperatorName == 'SpiceJet' ? spicejetImg : detail.OperatorName == "Indigo" ? indigoImg  : airInImg}}
-                            style={{height:35,width:35,alignSelf:'center'}}/>
+                        source={{uri : logoApi+detail.OperatorCode}}
+                            style={{height:35,width:50,alignSelf:'center'}}/>
     
                     <Text style={{margin:8,fontSize:16}}> {detail.OperatorName} | {detail.OperatorCode} {detail.FlightNumber} </Text>
     
@@ -84,13 +80,13 @@ DetailedCard = props =>{
                 <View style={{flexDirection:'row'}}>
                     <Icon name="file-cabinet" type="MaterialCommunityIcons"/>
                     <Text style={{color:'#000',margin:5}}>Cabin  Bag  :</Text>
-                    <Text style={{color:dColor,fontWeight:'500',margin:5}}>{Attr.CabinBaggage || 'No Info Available'} </Text>
+                    <Text style={{color:dColor,fontWeight:'500',margin:5}}>{Attr ? Attr.CabinBaggage || noInfoTxt : noInfoTxt} </Text>
                 </View>
     
                 <View style={{flexDirection:'row'}}>
                     <Icon name="briefcase-check" type="MaterialCommunityIcons"/>
                     <Text style={{color:'#000',margin:5}}>Check-in Bag :</Text>
-                    <Text style={{color:dColor,fontWeight:'500',margin:5}}>{Attr.Baggage || 'No Info Available'}</Text>
+                    <Text style={{color:dColor,fontWeight:'500',margin:5}}>{Attr ? Attr.Baggage || noInfoTxt : noInfoTxt}</Text>
                 </View>
     
                

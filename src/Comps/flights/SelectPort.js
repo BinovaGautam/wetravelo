@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
-import { View, Text,StyleSheet, TextInput,FlatList,Image,TouchableOpacity,Dimensions,ScrollView,StatusBar } from 'react-native';
+import { View, Text,StyleSheet, TextInput,FlatList,Image,TouchableOpacity,Dimensions,ScrollView,StatusBar,Platform } from 'react-native';
 import { InstantSearch,connectInfiniteHits,connectSearchBox,connectHighlight,connectStateResults } from 'react-instantsearch-native';
 import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base';
+import {strings} from '../assets'
+import firestore from '@react-native-firebase/firestore'
+import algoliasearch from 'algoliasearch/reactnative'
 
-const color = "#fff"
-const dColor = "#026C70"
+const {dColor} = strings
 const {height,width} = Dimensions.get('window')
+const ios = Platform.OS === 'ios'  
 
 const Highlight = connectHighlight(
   ({ highlight, attribute, hit, highlightProperty }) => {
@@ -48,7 +51,7 @@ const Hits = connectInfiniteHits(({ hits, hasMore, refine,get,selected }) => {
     
     
     return (
-      <ScrollView>
+      
             <FlatList
               data={hits}
               onEndReached={onEndReached}
@@ -88,7 +91,7 @@ const Hits = connectInfiniteHits(({ hits, hasMore, refine,get,selected }) => {
                  }
               }}
             />
-      </ScrollView>
+     
       );
 });
 
@@ -99,10 +102,10 @@ const SearchBox = connectSearchBox(({ refine, currentRefinement,select,currentMe
     height: 70,
     backgroundColor: '#fff',
     borderRadius:4,
-    margin: 10,
-    
+    padding: 10,
     flex: 1,
     flexDirection: 'row',
+    elevation:4
   };
 
   const box_styles = {
@@ -137,7 +140,7 @@ const SearchBox = connectSearchBox(({ refine, currentRefinement,select,currentMe
       clearButtonMode={'always'}
       spellCheck={false}
       autoCorrect={false}
-      autoCapitalize={'none'}
+      autoCapitalize={'characters'}
     />
     
    </View> 
@@ -156,11 +159,12 @@ const Content = connectStateResults(({searchState,getdata,selected})=>
 export default class SearchPort extends Component {
     static navigationOptions = {
       //  header : null,
-        title : 'SELECT AIRPORT',
+        title : '',
         headerStyle : {
             backgroundColor: '#FFF' ,
-            elevation: 3,
+            elevation: ios ? 0 : 0,
             borderBottomWidth:0,
+            marginTop: ios ? 0 : 24,
         },
         headerTintColor : '#000',
         headerTitleStyle : {
@@ -220,31 +224,16 @@ export default class SearchPort extends Component {
      const med = this.state.med
      const selected = this.state.selected
      const currentMed = this.state.currentMed
+     const searchClient = algoliasearch(
+      'ZW7OWRND7Z',
+      'a665265bd5a5d1795c8dca64bb304f4a'
+    );
     return (
       <View style={{flex:1,backgroundColor:'#f5f5f5'}}>
-        <StatusBar backgroundColor="#fff" barStyle="dark-content" />
-        {/* <Header style={{backgroundColor:'#fff',borderBottomWidth:0}}>
-          <Left>
-            <Button transparent>
-              <Icon name='arrow-back' />
-            </Button>
-          </Left>
-          <Body>
-            <Title>Header</Title>
-          </Body>
-          <Right>
-            <Button transparent>
-              <Icon name='menu' />
-            </Button>
-          </Right>
-        </Header> */}
- 
-       
+        <StatusBar backgroundColor="#fff" translucent={true} barStyle="dark-content" />
+     
 
-         <InstantSearch
-          appId="ZW7OWRND7Z"
-          apiKey="a665265bd5a5d1795c8dca64bb304f4a"
-          indexName="airports" >
+         <InstantSearch indexName="airports" searchClient={searchClient} >
 
               <View style={styles.searchContainer} >
                <SearchBox currentMed={currentMed} select={bool=>this.setState({selected:bool})} />
@@ -283,5 +272,5 @@ const styles = StyleSheet.create({
     searchContainer :{backgroundColor: '#FFF',height:60,justifyContent: 'center',shadowColor: "#000",},
     // shadowOffset: { width: 0, height: 0, },shadowOpacity: 0.27,shadowRadius: 4.65,},
     bottom:{bottom:0,left:0,height:60,width:width,borderTopWidth:0,borderColor:'#ccc',elevation:6,justifyContent: 'center',
-    opacity:0.98,backgroundColor: color,position:'absolute'},
+    opacity:0.98,backgroundColor: '#fff',position:'absolute'},
 })

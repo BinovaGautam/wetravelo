@@ -19,9 +19,9 @@ export default class CheckOut extends Component {
         super(props)
         this.state ={
             travellers :  [
-                                {title:'Adults',name:'AdultCount',list:[],value : 0,description:'Ages Above 12 Years'},
-                                {title:'Children',name:'ChildCount',list:[],value : 0,description:'Ages 2 - 12 Years'},
-                                {title:'Infants',name:'InfantCount',list:[],value : 0,description:'Under 2 Years'},
+                                {alt:'Adult',title:'Adults',name:'AdultCount',list:[],value : 1,description:'Ages Above 12 Years'},
+                                {alt:'Child',title:'Children',name:'ChildCount',list:[],value : 1,description:'Ages 2 - 12 Years'},
+                                {alt:'Infant',title:'Infants',name:'InfantCount',list:[],value : 1,description:'Under 2 Years'},
                             ]
         }
     }
@@ -30,6 +30,7 @@ export default class CheckOut extends Component {
         let {navigation} = this.props
         navigation.setParams({getList : this.getList})
         let data = navigation.getParam('data',null)
+        let Rdata = navigation.getParam('Rdata',null)
         let {travellers} = this.state
 
         if(data){
@@ -41,6 +42,20 @@ export default class CheckOut extends Component {
                     travellers[index].value = PassengerBreakup[key].PassengerCount
                     if(id+1 == keyArray.length){
                         this.setState({travellers,ResultToken})
+                    }
+            })
+        }
+
+        if(Rdata){ //for domestic return type of journey 
+            let {ResultTokens,selection} = Rdata
+            let {Price} = selection
+            let {PassengerBreakup} = Price
+            let keyArray =  Object.keys(PassengerBreakup)
+              keyArray.map((key,id)=>{
+                    let index = key == 'ADT' ? 0 :key == 'CHD' ? 1 : 2
+                    travellers[index].value = PassengerBreakup[key].PassengerCount
+                    if(id+1 == keyArray.length){
+                        this.setState({travellers,ResultTokens})
                     }
             })
         }
@@ -76,7 +91,7 @@ export default class CheckOut extends Component {
         let verified = true
         let {navigation} = this.props
         travellers.map((traveller,id)=>{
-            let {list,value,title} = traveller
+            let {list,value,title,alt} = traveller
             /*
              Approaching this problem
              
@@ -151,9 +166,9 @@ export default class CheckOut extends Component {
                                           }
                                           
                                             </Card>
-                                             <TouchableOpacity disabled={value - list.length ? false : true} onPress={()=>navigation.navigate('TravellerForm',{title,list,id,getList : this.getList})}
+                                             <TouchableOpacity disabled={value - list.length ? false : true} onPress={()=>navigation.navigate('TravellerForm',{alt,list,id,getList : this.getList})}
                                              activeOpacity={0.8}  style={{backgroundColor:'#00b894',justifyContent:'center',margin:20,opacity :  value - list.length ? 1 : 0.4 }}>
-                                                 <Text style={{fontSize:16,fontWeight:'500',color:'#fff',textAlign:'center',marginVertical:10,}}> ADD  {title.toUpperCase()} </Text>
+                                                 <Text style={{fontSize:16,fontWeight:'500',color:'#fff',textAlign:'center',marginVertical:10,}}> ADD  {alt.toUpperCase()} </Text>
                                              </TouchableOpacity>
     
                                         </View>

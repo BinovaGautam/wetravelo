@@ -1,0 +1,237 @@
+{
+    "Status": 1,
+    "Message": "",
+    "Search": [
+        {
+            "CompanyName": "GDS Demo Testnaveen",
+            "CompanyId": 3963,
+            "ProvId": 15,
+            "RouteScheduleId": 1,
+            "BusTypeName": "Non A/C, Seater",
+            "BusLabel": "2X2(35) NAC Seater  2 2 pushback non a/c",
+            "RouteCode": "vSDCYTWm5EIekpgIqKE8dQ==|7xJuLAQ5S00rRYJLMIjlNg==",
+            "DeptTime": "2019-12-26 12:16:00",
+            "DepartureTime": "2019-12-26 12:16:00",
+            "ArrTime": "2019-12-27 00:21:00",
+            "ArrivalTime": "2019-12-27 00:21:00",
+            "HasNAC": true,
+            "HasAC": false,
+            "HasSeater": true,
+            "HasSleeper": false,
+            "SemiSeater": false,
+            "IsVolvo": false,
+            "CommAmount": 0,
+            "DiscountAmt": 0,
+            "TripId": "46754",
+            "CompanySuf": null,
+            "From": "Bangalore",
+            "To": "Chennai",
+            "Duration": "12:05",
+            "BusStatus": {
+                "BaseFares": [
+                    11,
+                    0
+                ],
+                "TotalTax": 0,
+                "CurrencyCode": "INR"
+            },
+            "Fare": 11,
+            "AvailableSeats": 29,
+            "Pickups": [
+                {
+                    "PickupCrossed": false,
+                    "PickupTime": "2019-12-26 12:01:00",
+                    "PickupArea": "",
+                    "PickupName": "Anand rao circle",
+                    "PickupCode": "39436"
+                },
+                {
+                    "PickupCrossed": false,
+                    "PickupTime": "2019-12-26 12:11:00",
+                    "PickupArea": "",
+                    "PickupName": "Santhi nagar",
+                    "PickupCode": "57918"
+                },
+                {
+                    "PickupCrossed": false,
+                    "PickupTime": "2019-12-26 12:16:00",
+                    "PickupArea": "",
+                    "PickupName": "Amar Hotel, Opp BMTC Bus Stand",
+                    "PickupCode": "776"
+                },
+                {
+                    "PickupCrossed": false,
+                    "PickupTime": "2019-12-26 12:16:00",
+                    "PickupArea": "",
+                    "PickupName": "Hosur",
+                    "PickupCode": "44957"
+                },
+                {
+                    "PickupCrossed": false,
+                    "PickupTime": "2019-12-26 12:16:00",
+                    "PickupArea": "",
+                    "PickupName": "Complex centre",
+                    "PickupCode": "57573"
+                },
+                {
+                    "PickupCrossed": false,
+                    "PickupTime": "2019-12-26 12:26:00",
+                    "PickupArea": "",
+                    "PickupName": "Bommanahalli",
+                    "PickupCode": "44955"
+                },
+                {
+                    "PickupCrossed": false,
+                    "PickupTime": "2019-12-26 12:36:00",
+                    "PickupArea": "",
+                    "PickupName": "Silk board",
+                    "PickupCode": "44953"
+                }
+            ],
+            "Dropoffs": [
+                {
+                    "DropoffTime": "2019-12-27 00:21:00",
+                    "DropoffName": "Koyambedu",
+                    "DropoffCode": "750"
+                },
+                {
+                    "DropoffTime": "2019-12-27 00:21:00",
+                    "DropoffName": "Airport",
+                    "DropoffCode": "81897"
+                },
+                {
+                    "DropoffTime": "2019-12-27 00:21:00",
+                    "DropoffName": "Ashok nagar",
+                    "DropoffCode": "136529"
+                },
+                {
+                    "DropoffTime": "2019-12-27 01:21:00",
+                    "DropoffName": "Chennai central",
+                    "DropoffCode": "746"
+                }
+            ],
+            "CancPolicy": [
+                {
+                    "Amt": 0,
+                    "Pct": 100,
+                    "Mins": 0
+                },
+                {
+                    "Amt": 0,
+                    "Pct": 80,
+                    "Mins": 360
+                },
+                {
+                    "Amt": 0,
+                    "Pct": 65,
+                    "Mins": 720
+                },
+                {
+                    "Amt": 0,
+                    "Pct": 45,
+                    "Mins": 1440
+                },
+                {
+                    "Amt": 0,
+                    "Pct": 10,
+                    "Mins": 2160
+                }
+            ],
+            "BusTypeNames": {
+                "IsAC": "NON_AC",
+                "Seating": "SEATER",
+                "Make": "NORMAL"
+            },
+            "ResultToken": "3adffb1ee31bbaffe21d7821e6afbb10",
+            "booking_source": "PTBSID0000000003",
+            "status": 1
+        },
+        {
+            "CompanyName": "GDS Demo Test",
+            "CompanyId": 3963,
+            "ProvId": 15,
+            "RouteScheduleId": 26,
+            "BusTypeName": "Non A/C, Seater Sleeper",
+            "BusLabel": "2X1(34) NAC Seater-Sleeper  Ashok leyland",
+            "RouteCode": "ewt24z93TUOYOtfgpUvg9Q==|xTE_4_UuFmEejklotO4BWw==",
+            "DeptTime": "2019-12-26 23:00:00",
+            "DepartureTime": "2019-12-26 23:00:00",
+            "ArrTime": "2019-12-27 09:15:00",
+            "ArrivalTime": "2019-12-27 09:15:00",
+            "HasNAC": true,
+            "HasAC": false,
+            "HasSeater": true,
+            "HasSleeper": true,
+            "SemiSeater": false,
+            "IsVolvo": false,
+            "CommAmount": 8.16,
+            "DiscountAmt": 0,
+            "TripId": "33250",
+            "CompanySuf": null,
+            "From": "Bangalore",
+            "To": "Chennai",
+            "Duration": "10:15",
+            "BusStatus": {
+                "BaseFares": [
+                    102,
+                    0
+                ],
+                "TotalTax": 0,
+                "CurrencyCode": "INR"
+            },
+            "Fare": 102,
+            "AvailableSeats": 34,
+            "Pickups": [
+                {
+                    "PickupCrossed": false,
+                    "PickupTime": "2019-12-27 00:20:00",
+                    "PickupArea": "",
+                    "PickupName": "S.k.travels (madiwala)",
+                    "PickupCode": "473"
+                }
+            ],
+            "Dropoffs": [
+                {
+                    "DropoffTime": "2019-12-27 09:30:00",
+                    "DropoffName": "Chennai central",
+                    "DropoffCode": "746"
+                }
+            ],
+            "CancPolicy": [
+                {
+                    "Amt": 0,
+                    "Pct": 100,
+                    "Mins": 0
+                },
+                {
+                    "Amt": 0,
+                    "Pct": 80,
+                    "Mins": 360
+                },
+                {
+                    "Amt": 0,
+                    "Pct": 65,
+                    "Mins": 720
+                },
+                {
+                    "Amt": 0,
+                    "Pct": 45,
+                    "Mins": 1440
+                },
+                {
+                    "Amt": 0,
+                    "Pct": 10,
+                    "Mins": 2160
+                }
+            ],
+            "BusTypeNames": {
+                "IsAC": "NON_AC",
+                "Seating": "SEATER_SLEEPER",
+                "Make": "NORMAL"
+            },
+            "ResultToken": "3adffb1ee31bbaffe21d7821e6afbb10",
+            "booking_source": "PTBSID0000000003",
+            "status": 1
+        }
+    ]
+}

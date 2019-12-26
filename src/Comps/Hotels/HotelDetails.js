@@ -5,10 +5,11 @@ import { ScrollView } from 'react-native-gesture-handler'
 import HTML from 'react-native-render-html';
 import { SliderBox } from 'react-native-image-slider-box';
 import Carousel, { Pagination,ParallaxImage } from 'react-native-snap-carousel';
+import Axios from 'axios';
 const { width: screenWidth } = Dimensions.get('window')
 
-let SingleHotel = require('./SingleHotel')
-let data = SingleHotel.HotelDetails.HotelInfoResult.HotelDetails
+// let SingleHotel = require('./SingleHotel')
+// let data = SingleHotel.HotelDetails.HotelInfoResult.HotelDetails
 let {dColor,darktext,lightTeal} = strings
 let ios = Platform.OS === 'ios' ? true : false
 export default class HotelDetails extends Component {
@@ -20,11 +21,51 @@ export default class HotelDetails extends Component {
     componentDidMount() {
         let {navigation} = this.props
         // let data = navigation.getParam('data',null)
-        if(data) this.setState({data,loading:false})
+        // if(data) this.setState({data,loading:false})
+        this.getDetails()
     }
     
+    getDetails = () =>{
+        let {navigation} = this.props
+        let navparams =  navigation.state.params || {}
+        
+        let {ResultToken,Price} = navparams.data
+        this.setState({Price,ResultToken})
+        console.warn(Price)
+        Axios({
+            url: 'http://test.services.travelomatix.com/webservices/index.php/hotel_v3/service/HotelDetails',
+            method: 'POST',
+            headers: 
+            { 'Postman-Token': 'eac38801-9d91-407e-be63-f9f19006d0af',
+                'cache-control': 'no-cache',
+                'Content-Type': 'application/json',
+                'x-Password': 'test@229',
+                'x-system': 'test',
+                'x-DomainKey': 'TMX1512291534825461',
+                'x-Username': 'test229267' },
+            data:{ResultToken},
+            json: true })
+            .then(response =>{
+            console.log('waiting.....')
+             let Hotel = response.data
+             console.log(Hotel.Status,'status')
+            //  alert(JSON.stringify(Hotel))
+             if(Hotel.Status){
+                let data = Hotel.HotelDetails.HotelInfoResult.HotelDetails
+             
+                this.setState({data,loading:false })
+                // navigation.navigate('HotelDetails',{data:HotelResults[5]})
+            }else{
+                alert(Hotel.Message || 'Internal Server Error.')
+                this.setState({loading:false})
+            }
+            }).catch(err =>{
+                  alert(JSON.stringify(err))
+            })
+    }
     render() {
-        let {data,loading} = this.state
+        let {data,loading,Price,ResultToken} = this.state
+        let {navigation} = this.props
         
         return (
             <View style={{flex:1}}>
@@ -36,19 +77,21 @@ export default class HotelDetails extends Component {
                          <ScrollView style={{flex:1}}>
                             <DetailCard data={data}/>
                          </ScrollView>
+
+                          <View style={{height:80,justifyContent:'center',padding:8,borderTopWidth:0.5,borderColor:'#ddd',flexDirection:'row'}}>
+                            <View style={{flex:1,justifyContent:'center',marginLeft:5}}>
+                                <Text style={{color:'#000',fontSize:24,fontWeight:'500'}}>₹ {Price.OfferedPriceRoundedOff} </Text>
+                                {/* <Text style={{color:dColor,fontWeight:'500'}}>FOR {travellerCount}  {travellerCount >1 ?'TRAVELLERS' : 'TRAVELLER'}</Text> */}
+                            </View>
+                            <TouchableOpacity  activeOpacity={0.8} onPress={()=>navigation.navigate('RoomList',{ResultToken})}
+                            style={{borderRadius:4,flex:1, justifyContent:'center',backgroundColor:dColor,marginHorizontal:10,marginBottom:10}}>
+                                <Text style={{textAlign:'center',color:'#fff',fontWeight:'500',fontSize:15,letterSpacing:1}}>SELECT ROOM</Text>
+                            </TouchableOpacity>
+                         </View>
+          
                      </View>
                     :null}
-                  <View style={{height:80,justifyContent:'center',padding:8,borderTopWidth:0.5,borderColor:'#ddd',flexDirection:'row'}}>
-                    <View style={{flex:1,justifyContent:'center',marginLeft:5}}>
-                        <Text style={{color:'#000',fontSize:24,fontWeight:'500'}}>₹ 1234 </Text>
-                        {/* <Text style={{color:dColor,fontWeight:'500'}}>FOR {travellerCount}  {travellerCount >1 ?'TRAVELLERS' : 'TRAVELLER'}</Text> */}
-                    </View>
-                    <TouchableOpacity  activeOpacity={0.8} onPress={()=>this.submit(data)}
-                    style={{borderRadius:4,flex:1, justifyContent:'center',backgroundColor:dColor,marginHorizontal:10,marginBottom:10}}>
-                        <Text style={{textAlign:'center',color:'#fff',fontWeight:'500',fontSize:16}}>CONTINUE</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
+                   </View>
         )
     }
 }

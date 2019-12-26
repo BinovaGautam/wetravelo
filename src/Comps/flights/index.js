@@ -1,4 +1,5 @@
 import {createStackNavigator} from 'react-navigation'
+import React from 'react'
 import {Platform} from 'react-native'
 import SearchFlight from './SearchFLight'
 import JourneyDetails from './JourneyDetails'
@@ -12,6 +13,8 @@ import SelectCountry from './SelectCountry'
 import Booking from './Booking'
 import Payment from './Payment'
 import Confirmation from './Confirmation'
+import { Icon } from 'native-base'
+import ReturnDetails from './ReturnDetails'
 
 
 let ios = Platform.OS === 'ios' ? true : false
@@ -19,25 +22,28 @@ let ios = Platform.OS === 'ios' ? true : false
 
 
 let FlightStack = createStackNavigator({
-    SearchFlight: SearchFlight,
-  FlightList : FlightList,
-   
-    Confirmation: Confirmation,
-    Payment : Payment,
-    Booking : Booking,
+    // SearchFlight: SearchFlight,
+    // FlightList : FlightList,
+    // Confirmation: Confirmation,
+    // Payment : Payment,
+    // Booking : Booking,
     CheckOut : CheckOut,
     TravellerForm : TravellerForm,
-   
      SelectCountry: SelectCountry,
       SelectPort : SelectPort,
     TravellerClass : TravellerClass,
      SelectDate: SelectDate,
-    JourneyDetails : JourneyDetails
+    JourneyDetails : JourneyDetails,
+    ReturnDetails : ReturnDetails
 },
 {
-    defaultNavigationOptions :{
-        headerStyle:{
-            marginTop: !ios ? 24 :0
+    defaultNavigationOptions : ({navigation}) =>{
+        return{
+            headerStyle:{
+                marginTop: !ios ? 24 :0,
+                elevation:0
+            },
+            headerRight: <Icon name="home" type="Octicons" style={{margin:8,marginRight:12,}} onPress={()=> navigation.navigate('Home')} />
         }
     }
 }

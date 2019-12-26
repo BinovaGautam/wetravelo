@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import { Text, View,StatusBar,TouchableOpacity } from 'react-native'
-import { classes } from 'istanbul-lib-coverage'
+import { Text, View,StatusBar,TouchableOpacity, } from 'react-native'
+import {strings} from '../assets'
 
-let dColor = '#026C70'
+let {dColor} =strings
 export default class TravellerClass extends Component {
     static navigationOptions = {
         title:'Select Travellers & Class'
@@ -46,6 +46,7 @@ export default class TravellerClass extends Component {
         let classes = ['Economy','Premium Economy','Business']
         return (
             <View style={{flex:1}}>
+                <StatusBar backgroundColor="#fff" translucent={true} barStyle="dark-content" />
                  <View style={{flex:1}}>
                 <Text style={{margin:10,color:dColor,fontWeight:'500',fontSize:20}}> TRAVELLERS </Text>
 

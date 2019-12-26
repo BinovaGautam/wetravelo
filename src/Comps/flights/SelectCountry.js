@@ -93,8 +93,8 @@ export default class SelectCountry extends Component {
                         
                             return (
                     
-                                  <TouchableOpacity onPress={()=>this.clicked(item)}  activeOpacity={0.8}
-                                  style={{ height:40, borderBottomWidth:1,backgroundColor: "#f6f6f6",borderColor:"#dedede",justifyContent:'center' }}>
+                                  <TouchableOpacity onPress={()=>this.clicked(item)}  activeOpacity={0.5}
+                                  style={{ height:50, borderBottomWidth:1,backgroundColor: "#fff",borderColor:"#dedede",justifyContent:'center' }}>
                                 
                                      <Text style={{fontSize:18,color:"#000",margin:8}} >  {item.nationality}  </Text>
                                    </TouchableOpacity>

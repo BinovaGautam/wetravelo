@@ -1,0 +1,13 @@
+{ 
+    "Status": 1, 
+    "Message": "",
+     "CommitBooking": {
+          "BookingDetails": { 
+                "ConfirmationNo": "BLUURDVSG9UJ",
+                 "BookingRefNo": "BLUURDVSG9UJ", 
+                 "BookingId": "TM-309612904|1234,1235",
+                  "SupplierVatId": "", 
+                 "booking_status": "BOOKING_CONFIRMED" 
+                 }
+                }
+             }

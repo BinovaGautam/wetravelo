@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { Text, View,StatusBar,Platform,TouchableOpacity,TextInput,ScrollView} from 'react-native'
 import {strings, Loader} from '../assets'
-
+import auth from '@react-native-firebase/auth'
+// import firestore from '@react-native-firebase/firestore'
 import { Icon, Form, Item, Input, Label ,DatePicker} from 'native-base';
 
 let {dColor,darktext,lightTeal,pink,silver} = strings
@@ -12,13 +13,30 @@ export default class Signup extends Component {
         super(props)
         this.state={submit: false}
     }
+    createUser = () =>{
+        let {email,password} = this.state
+        if(email && password){
+            let credential = auth.EmailAuthProvider.credential(email, password);
+            this.setState({loading:true})
+            auth().currentUser.linkWithCredential(credential)
+            .then(res => {
+                this.setState({loading:false})
+                this.props.navigation.navigate('Account')
+            })
+            .catch(err => {
+                console.warn(err)
+                this.setState({loading:false})
+        })
+        }
+       
+    }
     render() {
-        let {submit,email,password} = this.state
+        let {submit,email,password,loading} = this.state
         let {navigation} = this.props
         return (
             <View style={{flex:1,backgroundColor: "#fff",}}>
                 <Text style={[{fontSize:36,fontWeight:'600',color:darktext,fontFamily:ios?'Optima':'sans-serif-medium',margin:10,letterSpacing:1.5} ]}>New Account</Text>
-
+                 {loading ? <Loader/> : null}
                <ScrollView style={{flex:1}}>
                     <View style={{padding:10,marginTop:15,borderColor:'#ddd',borderRadius:5}}>
                                     <View>
@@ -39,7 +57,7 @@ export default class Signup extends Component {
 
                                             
                                             
-                                <TouchableOpacity style={{height:50,borderRadius:5,backgroundColor:dColor,justifyContent:"center",margin:10,marginTop:18}} activeOpacity={0.8}>
+                                <TouchableOpacity onPress={this.createUser} style={{height:50,borderRadius:5,backgroundColor:dColor,justifyContent:"center",margin:10,marginTop:18}} activeOpacity={0.8}>
                                     <Text style={{textAlign:'center',fontSize:18,letterSpacing:1,color:'#fff',fontWeight:'500'}}>CREATE ACCOUNT</Text>
                                 </TouchableOpacity> 
 

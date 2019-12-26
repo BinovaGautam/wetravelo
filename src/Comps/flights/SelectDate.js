@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,Dimensions,
-  View
+  View,StatusBar
 } from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 import {strings,Loader} from '../assets' 
 import { Icon } from 'native-base';
+import {SingleDatepicker} from 'react-native-scrollable-datepicker'
 
 let {dColor,lightGreen} = strings
 let {height,width} = Dimensions.get('screen')
@@ -26,7 +27,7 @@ export default class SelectDate extends Component {
     this.onDateChange = this.onDateChange.bind(this);
   }
  
-  onDateChange(date, type) {
+  onDateChange(date) {
     const {navigation} = this.props
     let sday = new Date(date)
     let dateString = `${sday.getDate()}-${sday.getMonth()+1}-${sday.getFullYear()}T00:00:00`
@@ -34,6 +35,7 @@ export default class SelectDate extends Component {
     let dayType = navigation.getParam('dayType','departure')
     if(getDay) getDay(sday,dateString,dayType)
     navigation.goBack()
+    // alert(JSON.stringify(date))
     }
  
   render() {
@@ -45,7 +47,11 @@ export default class SelectDate extends Component {
  
     return (
       <View style={styles.container}>
-        <CalendarPicker
+        <StatusBar backgroundColor="#fff" translucent={true} barStyle="dark-content" />
+        <SingleDatepicker showButton={true} showClose={false} buttonColor={dColor} selectedBackgroundColor={dColor}
+            onSelect =  {date => this.onDateChange(date)}
+        />
+        {/* <CalendarPicker
           startFromMonday={true}
           allowRangeSelection={false}
           minDate={minDate}
@@ -58,7 +64,7 @@ export default class SelectDate extends Component {
           previousTitle = {<Icon name="arrow-left-bold-circle-outline" type="MaterialCommunityIcons" style={{alignSelf:'center'}} />}
           nextTitle = {<Icon name="arrow-right-bold-circle-outline" type="MaterialCommunityIcons" style={{alignSelf:'center'}} />}
           scaleFactor={350} 
-        />
+        /> */}
  
         {/* <View>
           <Text>SELECTED START DATE:{ startDate }</Text>

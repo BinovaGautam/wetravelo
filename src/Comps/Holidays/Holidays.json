@@ -1,0 +1,589 @@
+{
+    "Packages" : [
+        {
+            "category" : "international",
+            "title" : "AROUND THE WORLD",
+            "plans" : [
+                {
+                    "title" : "DUBAI",
+                    "startingPrice" : 29500,
+                    "display_img" : "https://viaggioadubai.imgix.net/wp-content/uploads/2016/02/pasqua-dubai.jpg",
+                    "trend_points" : 430,
+                    "options" :[
+                        {   "name" : "Short Trip To Dubai",
+                            "price" : 30350,
+                            "nights" : 3,
+                            "days" : 4,
+                            "flight" : true,
+                            "hotel" : true,
+                            "food" : true,
+                            "rating" : 3.8,
+                            "ratings" : 45,
+                            "bookings" : 213,
+                            "activities" :[
+                                [
+                                    {
+                                        "activity_name" : "Boating",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "City Tour",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dubai Frame",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "activity_name" : "Desert Safari",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Palm City",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [],
+                                []
+                            ]
+                        },
+                        {   "name" : "Best Of Dubai Adventure",
+                            "price" : 44990,
+                            "nights" : 4,
+                            "days" : 5,
+                            "flight" : true,
+                            "hotel" : true,
+                            "food" : true,
+                            "rating" : 3.8,
+                            "ratings" : 45,
+                            "bookings" : 213,
+                            "activities" :[
+                                
+                                [
+                                    {
+                                        "activity_name" : "Arrival At Dubai International Airport",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Transfer By Private Taxi.",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dinner",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "activity_name" : "Desert Safari",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Palm City",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                     {
+                                        "activity_name" : "Boating",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "City Tour",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dubai Frame",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [],
+                                []
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title" : "BALI",
+                    "startingPrice" : 22500,
+                    "display_img" : "https://www.holidify.com/images/bgImages/BALI.jpg",
+                    "trend_points" : 240,
+                    "options" :[
+                        {
+                            "name": "Super Saver Bali (4N)",
+                            "daynight": "4N 5D",
+                            "aminities": "Hotels Flights Transfers",
+                            "price": "37,607"
+                            },
+                            {
+                            "name": "Best of Bali - 6 Nights",
+                            "daynight": "6N 7D",
+                            "aminities": "Hotels Flights Activities Transfers",
+                            "price": "58,658"
+                            },
+                            {
+                            "name": "Best of Bali - 5 Nights",
+                            "daynight": "5N 6D",
+                            "aminities": "Hotels Flights Activities Transfers",
+                            "price": "58,058"
+                            },
+                            {
+                            "name": "Bali Hot Deal with Pvt pool villa (6N) - Exclusive Deal",
+                            "daynight": "6N 7D",
+                            "aminities": "Hotels Flights Transfers",
+                            "price": "89,500"
+                            },
+                            {
+                            "name": "Best of Bali - 4 Nights",
+                            "daynight": "4N 5D",
+                            "aminities": "Hotels Flights Activities Transfers",
+                            "price": "45,937"
+                            },
+                            {
+                            "name": "Bali Hot Deal with Pvt Pool Villa - 5N",
+                            "daynight": "5N 6D",
+                            "aminities": "Hotels Flights Transfers",
+                            "price": "79,400"
+                            },
+                            {
+                            "name": "Treasures of Bali Kuta & Seminyak-Private Pool Villa",
+                            "daynight": "6N 7D",
+                            "aminities": "Hotels Flights Transfers",
+                            "price": "83,900"
+                            },
+                            {
+                            "name": "Bali Hot Deal-(5N)",
+                            "daynight": "5N 6D",
+                            "aminities": "Hotels Flights Transfers",
+                            "price": "72,900"
+                            },
+                            {
+                            "name": "Best of Bali - 7 Nights",
+                            "daynight": "7N 8D",
+                            "aminities": "Hotels Flights Activities Transfers",
+                            "price": "57,860"
+                            },
+                            {
+                            "name": "Discover Bali - Top Attractions (6N)",
+                            "daynight": "6N 7D",
+                            "aminities": "Hotels Flights Activities Transfers",
+                            "price": "55,139"
+                            }
+                     ]
+                },
+                {
+                    "title" : "SINGAPORE",
+                    "startingPrice" : 32450,
+                    "display_img" : "http://www.canadians.org.sg/assets/img/rp2.jpg",
+                    "trend_points" : 240,
+                    "options" :[
+                        {   
+                            "price" : 30350,
+                            "nights" : 3,
+                            "days" : 4,
+                            "flight" : true,
+                            "hotel" : true,
+                            "food" : true,
+                            "rating" : 3.8,
+                            "ratings" : 45,
+                            "bookings" : 213,
+                            "activities" :[
+                                [
+                                    {
+                                        "activity_name" : "Boating",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "City Tour",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dubai Frame",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "activity_name" : "Desert Safari",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Palm City",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [],
+                                []
+                            ]
+                        },
+                        {
+                            "price" : 44990,
+                            "nights" : 4,
+                            "days" : 5,
+                            "flight" : true,
+                            "hotel" : true,
+                            "food" : true,
+                            "rating" : 3.8,
+                            "ratings" : 45,
+                            "bookings" : 213,
+                            "activities" :[
+                                
+                                [
+                                    {
+                                        "activity_name" : "Arrival At Dubai International Airport",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Transfer By Private Taxi.",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dinner",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "activity_name" : "Desert Safari",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Palm City",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                     {
+                                        "activity_name" : "Boating",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "City Tour",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dubai Frame",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [],
+                                []
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "category" : "domestic",
+            "title":"IN & AROUND INDIA",
+            "plans" : [
+                {
+                    "title" : "DUBAI",
+                    "startingPrice" : 29500,
+                    "display_img" : "https://viaggioadubai.imgix.net/wp-content/uploads/2016/02/pasqua-dubai.jpg",
+                    "trend_points" : 430,
+                    "options" :[
+                        {
+                            "price" : 30350,
+                            "nights" : 3,
+                            "days" : 4,
+                            "flight" : true,
+                            "hotel" : true,
+                            "food" : true,
+                            "rating" : 3.8,
+                            "ratings" : 45,
+                            "bookings" : 213,
+                            "activities" :[
+                                [
+                                    {
+                                        "activity_name" : "Boating",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "City Tour",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dubai Frame",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "activity_name" : "Desert Safari",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Palm City",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [],
+                                []
+                            ]
+                        },
+                        {
+                            "price" : 44990,
+                            "nights" : 4,
+                            "days" : 5,
+                            "flight" : true,
+                            "hotel" : true,
+                            "food" : true,
+                            "rating" : 3.8,
+                            "ratings" : 45,
+                            "bookings" : 213,
+                            "activities" :[
+                                
+                                [
+                                    {
+                                        "activity_name" : "Arrival At Dubai International Airport",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Transfer By Private Taxi.",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dinner",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "activity_name" : "Desert Safari",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Palm City",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                     {
+                                        "activity_name" : "Boating",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "City Tour",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dubai Frame",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [],
+                                []
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title" : "BALI",
+                    "startingPrice" : 22500,
+                    "display_img" : "https://www.holidify.com/images/bgImages/BALI.jpg",
+                    "trend_points" : 240,
+                    "options" :[
+                        {
+                            "price" : 30350,
+                            "nights" : 3,
+                            "days" : 4,
+                            "flight" : true,
+                            "hotel" : true,
+                            "food" : true,
+                            "rating" : 3.8,
+                            "ratings" : 45,
+                            "bookings" : 213,
+                            "activities" :[
+                                [
+                                    {
+                                        "activity_name" : "Boating",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "City Tour",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dubai Frame",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "activity_name" : "Desert Safari",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Palm City",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [],
+                                []
+                            ]
+                        },
+                        {
+                            "price" : 44990,
+                            "nights" : 4,
+                            "days" : 5,
+                            "flight" : true,
+                            "hotel" : true,
+                            "food" : true,
+                            "rating" : 3.8,
+                            "ratings" : 45,
+                            "bookings" : 213,
+                            "activities" :[
+                                
+                                [
+                                    {
+                                        "activity_name" : "Arrival At Dubai International Airport",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Transfer By Private Taxi.",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dinner",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "activity_name" : "Desert Safari",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Palm City",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                     {
+                                        "activity_name" : "Boating",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "City Tour",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dubai Frame",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [],
+                                []
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "title" : "SINGAPORE",
+                    "startingPrice" : 32450,
+                    "display_img" : "http://www.canadians.org.sg/assets/img/rp2.jpg",
+                    "trend_points" : 240,
+                    "options" :[
+                        {
+                            "price" : 30350,
+                            "nights" : 3,
+                            "days" : 4,
+                            "flight" : true,
+                            "hotel" : true,
+                            "food" : true,
+                            "rating" : 3.8,
+                            "ratings" : 45,
+                            "bookings" : 213,
+                            "activities" :[
+                                [
+                                    {
+                                        "activity_name" : "Boating",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "City Tour",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dubai Frame",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "activity_name" : "Desert Safari",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Palm City",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [],
+                                []
+                            ]
+                        },
+                        {
+                            "price" : 44990,
+                            "nights" : 4,
+                            "days" : 5,
+                            "flight" : true,
+                            "hotel" : true,
+                            "food" : true,
+                            "rating" : 3.8,
+                            "ratings" : 45,
+                            "bookings" : 213,
+                            "activities" :[
+                                
+                                [
+                                    {
+                                        "activity_name" : "Arrival At Dubai International Airport",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Transfer By Private Taxi.",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dinner",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                    {
+                                        "activity_name" : "Desert Safari",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Palm City",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [
+                                     {
+                                        "activity_name" : "Boating",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "City Tour",
+                                        "img" : "xxxxx"
+                                    },
+                                    {
+                                        "activity_name" : "Dubai Frame",
+                                        "img" : "xxxxx"
+                                    }
+                                ],
+                                [],
+                                []
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+ }

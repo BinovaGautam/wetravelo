@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, View,StatusBar,Platform,TouchableOpacity,TextInput,ScrollView} from 'react-native'
 import {strings, Loader} from '../assets'
+import auth from '@react-native-firebase/auth'
 
 import { Icon, Form, Item, Input, Label ,DatePicker} from 'native-base';
 
@@ -12,12 +13,32 @@ export default class Signin extends Component {
         super(props)
         this.state={submit: false}
     }
+    
+    
+    loginWithPass = () =>{
+        let {email,password} = this.state
+
+        if(email && password){
+            this.setState({loading:true})
+            auth().signInWithEmailAndPassword(email,password)
+            .then(res => {
+                this.setState({loading:false})
+                this.props.navigation.navigate('Account')
+            })
+            .catch(err => {this.setState({loading:false})})
+        }else{
+            let msg = 'Both Email and Password are required.' 
+            alert(`${msg}`) 
+        }
+      
+    }
     render() {
-        let {submit,email,password} = this.state
+        let {submit,email,password,loading} = this.state
+        let {navigation} = this.props
         return (
             <View style={{flex:1,backgroundColor: "#fff",}}>
                 <Text style={[{fontSize:36,fontWeight:'600',color:darktext,fontFamily:ios?'Optima':'sans-serif-medium',margin:10,letterSpacing:1.5} ]}>Welcome Back</Text>
-
+                 {loading ? <Loader /> : null}
                <ScrollView style={{flex:1}}>
                     <View style={{padding:10,marginTop:15,borderColor:'#ddd',borderRadius:5}}>
                                     <View>
@@ -38,7 +59,7 @@ export default class Signin extends Component {
 
                                             
                                             
-                                <TouchableOpacity style={{height:50,borderRadius:5,backgroundColor:dColor,justifyContent:"center",margin:10,marginTop:18}} activeOpacity={0.8}>
+                                <TouchableOpacity onPress={this.loginWithPass} style={{height:50,borderRadius:5,backgroundColor:dColor,justifyContent:"center",margin:10,marginTop:18}} activeOpacity={0.8}>
                                     <Text style={{textAlign:'center',fontSize:18,letterSpacing:1,color:'#fff',fontWeight:'500'}}>LOGIN</Text>
                                 </TouchableOpacity> 
 
@@ -52,7 +73,8 @@ export default class Signin extends Component {
 
                                     <View>
                                         <Text style={{fontWeight:'500',letterSpacing:1,fontSize:18,margin:8,color:darktext}}>Don't Have An Account ?</Text>
-                                        <TouchableOpacity style={{height:50,borderRadius:5,backgroundColor:lightTeal,justifyContent:"center",margin:10,marginTop:18}} activeOpacity={0.8}>
+                                        <TouchableOpacity onPress={() => navigation.navigate('SignUp')}
+                                        style={{height:50,borderRadius:5,backgroundColor:lightTeal,justifyContent:"center",margin:10,marginTop:18}} activeOpacity={0.8}>
                                             <Text style={{textAlign:'center',fontSize:18,letterSpacing:1,color:'#fff',fontWeight:'500'}}>CREATE ACCOUNT</Text>
                                         </TouchableOpacity>   
                                     </View>       

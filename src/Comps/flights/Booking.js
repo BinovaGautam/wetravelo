@@ -5,13 +5,14 @@ import { iOSUIKit } from 'react-native-typography'
 import Snackbar from 'react-native-snackbar'
 import {strings, Loader} from '../assets'
 import axios from 'axios'
+import {connect} from 'react-redux'
 
 // import HTML from 'react-native-render-html';
 
 
 let {dColor,darktext,lightTeal,pink} = strings
 
-export default class Booking extends Component {
+ class Booking extends Component {
     static navigationOptions = { 
         title:'Booking Details'
     }
@@ -24,6 +25,7 @@ export default class Booking extends Component {
     }
 
     componentDidMount() {
+        this.getUser()
         let {navigation} = this.props
         let travellers = navigation.getParam('travellers',[])
         let ResultToken = navigation.getParam('ResultToken',null)
@@ -64,6 +66,14 @@ export default class Booking extends Component {
             if(id+1 == travellers.length) this.setState({Passengers,ResultToken})
         })
         
+    }
+
+    getUser = () =>{
+        let {auth} = this.props
+        let {islogged,user,userDetail} = auth
+        let {email,phoneNumber} = user
+        // alert(JSON.stringify(user))
+        this.setState({email,phoneNumber})
     }
     
     getList =(list,id) =>{
@@ -150,6 +160,11 @@ export default class Booking extends Component {
 }
 
 
-const styles = StyleSheet.create({
+ const mapStateToProps = (state, ownProps) => {
+    return {
+        auth: state.auth
+    }
+}
 
-})
+
+export default connect(mapStateToProps)(Booking)

@@ -24,7 +24,7 @@ export default class JourneyDetails extends Component {
         let travellerCount = data.Price.PassengerBreakup.ADT.PassengerCount  // get sum of total travellers
         let Jlist = data ?  data.FlightDetails.Details :[]
         return (
-            <View style={{marginTop:24,flex:1}}>
+            <View style={{flex:1}}>
                 <StatusBar translucent={true} backgroundColor="#fff" barStyle="dark-content"/>
                 <ScrollView style={{flex:1}}>
                     {data ?

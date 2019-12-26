@@ -1,0 +1,16 @@
+{
+    "Offers" : [
+        {
+            "img" : "https://firebasestorage.googleapis.com/v0/b/wetravelo-23c92.appspot.com/o/offers%2F3.jpg?alt=media&token=4e3dafeb-fbba-4168-9a80-911cdf2da631",
+            "offer" : "WTFLYWL"
+        },
+        {
+            "img" : "https://firebasestorage.googleapis.com/v0/b/wetravelo-23c92.appspot.com/o/offers%2F1.jpg?alt=media&token=539098ab-dd8a-43ed-b14b-a2c81192b8be",
+            "offer" : "WTINTNL"
+        },
+        {
+            "img" : "https://firebasestorage.googleapis.com/v0/b/wetravelo-23c92.appspot.com/o/offers%2F2.jpg?alt=media&token=bbdd57fa-7137-4f5a-866c-dd69d156be83",
+            "offer" : "FLYFRST"
+        }
+    ]
+}

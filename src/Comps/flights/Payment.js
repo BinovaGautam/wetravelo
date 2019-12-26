@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, View ,StatusBar,Image,Dimensions,TouchableOpacity,ScrollView,Platform,StyleSheet} from 'react-native'
+import { Text, View ,StatusBar,Image,Dimensions,TouchableOpacity,ScrollView,Platform,StyleSheet,Alert} from 'react-native'
 import { Icon ,Card,CardItem,Right,CheckBox,Body,ListItem,Form, Item, Input, Label} from 'native-base'
 import { iOSUIKit } from 'react-native-typography'
 import Snackbar from 'react-native-snackbar'
@@ -7,14 +7,16 @@ import {strings, Loader} from '../assets'
 import DetailCard from './DetailCard'
 import MultipleCard from './MultipleCard'
 import axios from 'axios'
+import { uuid } from 'uuidv4';
+import {connect} from 'react-redux'
+
 let updatedData = require('./FareQoute.json')
 // import HTML from 'react-native-render-html';
-
 
 let {dColor,darktext,lightTeal,silver} = strings
 
 
-export default class Payment extends Component {
+ class Payment extends Component {
     static navigationOptions = { 
         title:''
     }
@@ -51,7 +53,7 @@ export default class Payment extends Component {
         let {ResultToken} = data
         let {navigation} = this.props
         if(ResultToken && Passengers) {
-            let obj = {AppReference:'BIN12-154127-883271',SequenceNumber:0,ResultToken,Passengers}
+            let obj = {AppReference:uuid(),SequenceNumber:0,ResultToken,Passengers}
             this.setState({loading:true})
             console.warn(obj)
             axios({
@@ -76,7 +78,7 @@ export default class Payment extends Component {
                 // if(JourneyDetails.length) this.setState({type:'RoundTrip'})
                 BookingDetails ?  navigation.navigate('Confirmation',{BookingDetails}) : null
                 if(!BookingDetails){
-                    alert('Failed Try Again')
+                    Alert.alert('TraveloMatix Says,',response.data.Message)
                     this.setState({loading:false})
                 }
         
@@ -92,7 +94,8 @@ export default class Payment extends Component {
     
 
     render() {
-        let {navigation} = this.props
+        let {navigation,flight} = this.props
+        let {type} = flight
         // let data = navigation.getParam('data',{})
         let ios = Platform.OS === 'ios' ? true : false
         let {travellers,submit,phone,email,data,loading} =  this.state
@@ -113,7 +116,7 @@ export default class Payment extends Component {
                       
                       
                        <Text style={[{fontSize:20,fontWeight:'500' ,color:darktext,fontFamily:ios?'Optima':'sans-serif-medium',margin:8,marginVertical:18} ]}>
-                           RoundTrip type of journey.</Text>
+                           {type ? type.toUpperCase() : null}</Text>
                        
                        
                         <MultipleCard data={data}/>
@@ -205,6 +208,10 @@ export default class Payment extends Component {
 }
 
 
-const styles = StyleSheet.create({
+const mapStateToProps = (state, ownProps) => {
+    return {
+        flight : state.flight.recent || {} 
+    }
+}
 
-})
+export default connect(mapStateToProps)(Payment)
