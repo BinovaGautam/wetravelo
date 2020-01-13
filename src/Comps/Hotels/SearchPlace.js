@@ -4,16 +4,17 @@ import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplet
 import firestore from '@react-native-firebase/firestore'
 import LottieView from 'lottie-react-native';
 import { Icon } from 'native-base';
+import {connect} from 'react-redux'
 const homePlace = { description: 'Home', geometry: { location: { lat: 48.8152937, lng: 2.4597668 } }};
 const workPlace = { description: 'Work', geometry: { location: { lat: 48.8496818, lng: 2.2940881 } }};
  
 
 let db =firestore()
-export default class SearchPlace extends Component {
+ class SearchPlace extends Component {
     static navigationOptions = ({navigation}) => ({
-        headerLeft: <TouchableOpacity style={{justifyContent:'center',height:48,width:48,borderRadius:24}} activeOpacity={0.6}>
-                            <Icon name="arrowleft" type='AntDesign' style={{textAlign:'center'}} onPress={()=>navigation.navigate('Home')} />
-                    </TouchableOpacity>,
+        // headerLeft: <TouchableOpacity style={{justifyContent:'center',height:48,width:48,borderRadius:24}} activeOpacity={0.6}>
+        //                     <Icon name="arrowleft" type='AntDesign' style={{textAlign:'center'}} onPress={()=>navigation.navigate('Home')} />
+        //             </TouchableOpacity>,
         headerStyle:{
             elevation:0,
             marginTop:24
@@ -30,10 +31,18 @@ export default class SearchPlace extends Component {
     //    navigation.navigate('SelectDateRange')
    }
    
+   select = (data,details,navigation) => { 
+    let action = navigation.getParam('action',false)
+    if(action) action(details)
+    this.props.setStore({details})
+    navigation.goBack()
+  
+    }
    
     render() {
         let {navigation} = this.props
         let {loading}  = this.state
+        
         return (
             <View style={{flex:1,backgroundColor:'#fff'}}>
                <StatusBar barStyle="dark-content" translucent={true} backgroundColor="#fff"/> 
@@ -45,27 +54,7 @@ export default class SearchPlace extends Component {
                     listViewDisplayed='auto'    // true/false/undefined
                     fetchDetails={true}
                     renderDescription={row => row.description} // custom description render
-                    onPress={(data, details = null) => { // 'details' is provided when fetchDetails = true
-                        // console.log(data, details);
-                        // alert(JSON.stringify(details))
-                        let {address_components} = details
-                        for (var i = 0; i < address_components.length; i++) {
-                            let addressType = address_components[i].types[0];
-                            // for the country, get the country code (the "short name") also
-                            if (addressType === "locality") {
-                                 city = address_components[i].long_name
-                                 this.setState({loading:true})
-                                db.collection('allcities').where('city_name','==',city).limit(1).get()
-                                .then(res => {
-                                    let citydetails = res.size ? res.docs[0].data() : null
-                                    this.setState({loading:false})
-                                    citydetails ? navigation.navigate('SelectDateRange',{address:details,citydetails}) 
-                                    : alert('No Records Found For The Address Entered')
-                                })
-                               
-                            }
-                          }
-                    }}
+                    onPress={(data, details = null) => this.select(data,details,navigation) }
                     
                     getDefaultValue={() => ''}
                     
@@ -113,3 +102,13 @@ export default class SearchPlace extends Component {
         )
     }
 }
+
+
+
+const mapDispatchToProps = (dispatch, ownProps) => {
+    return {
+      setStore : (data) => dispatch({type:'ALTER_HOTEL',payload : {...data}}),
+    }
+}
+
+export default connect(null,mapDispatchToProps)(SearchPlace)

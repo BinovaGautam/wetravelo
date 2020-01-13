@@ -44,8 +44,8 @@ export default class HotelsLIst extends Component {
         const  monthArray = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sept','Oct','Nov','Dec']
          let {navigation}  = this.props
          let navparams =  navigation.state.params || {}
-          let {citydetails,address,CheckInDate,NoOfNights,RoomGuests,GuestNationality,NoOfRooms} = navparams
-          console.warn(navparams)
+          let {citydetails,address,CheckInDate,NoOfNights,RoomGuests,GuestNationality,NoOfRooms,NoOfGuests} = navparams
+          
          let {city_code,country_code,city_name} = citydetails 
          let {lat,lng} = address.geometry.location
          let date = new Date(CheckInDate)
@@ -57,19 +57,15 @@ export default class HotelsLIst extends Component {
                 CityId: parseInt(city_code) || 6743,
                 GuestNationality: GuestNationality || "IN",
                 NoOfRooms: NoOfRooms || 1,
-                RoomGuests: [
-                  RoomGuests                  //currently object for one room but change it as an array of objects for multiple rooms
-                ]
+                RoomGuests
         }
-
-        let {NoOfAdults,NoOfChild} = RoomGuests // this needs to be changed as when there will be booking for multiple rooms
 
         let header = [
             {title:city_name,to:'SearchPlace'},
             {title:`${NoOfNights} ${NoOfNights > 1 ? 'Nights' : 'Night'} from ${chekin_date.substr(0,2)} ${monthArray[date.getMonth()]}`,to:'SelectDateRange'},
-            {title:`${NoOfAdults+NoOfChild} Guests`,to:'SelectGuests'},
+            {title:`${NoOfGuests} Guests`,to:'SelectGuests'},
         ]
-
+        
         this.setState({header})
 
         // console.warn(data)
@@ -92,6 +88,7 @@ export default class HotelsLIst extends Component {
                  let Hotels = response.data
                  console.log(Hotels.Status,'status')
                 //  alert(JSON.stringify(Hotels))
+                console.warn(Hotels)
                  if(Hotels.Status){
                     let HotelResults = Hotels.Search.HotelSearchResult.HotelResults
                     HotelResults = HotelResults.filter((hotel)=> {
@@ -111,6 +108,7 @@ export default class HotelsLIst extends Component {
                 }
                 }).catch(err =>{
                       alert(JSON.stringify(err))
+                      this.setState({loading:false})
                 })
         
     }

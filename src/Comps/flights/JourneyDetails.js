@@ -3,10 +3,11 @@ import { Text, View ,StatusBar,Image,Dimensions,TouchableOpacity,ScrollView} fro
 import { Icon } from 'native-base'
 import HTML from 'react-native-render-html';
 import DetailedCard from './DetailedCard.js';
+import {strings} from '../assets'
 
-const FareRule = require('./FareRule.json')
+// const FareRule = require('./FareRule.json')
 
-let dColor = "#026C70"
+let {dColor,darktext,pink,lightTeal,eblue,grey} = strings
 export default class JourneyDetails extends Component {
     static navigationOptions = { 
         title:'Flight Details'
@@ -20,17 +21,26 @@ export default class JourneyDetails extends Component {
 
     render() {
         let data = this.props.navigation.getParam('data',{})
-        let FareRuleDetail = FareRule.FareRule.FareRuleDetail[0]
-        let travellerCount = data.Price.PassengerBreakup.ADT.PassengerCount  // get sum of total travellers
+        // let FareRuleDetail = FareRule.FareRule.FareRuleDetail[0]
+        let {travellerCount} = data.Price.PassengerBreakup.ADT || {}  // get sum of total travellers
         let Jlist = data ?  data.FlightDetails.Details :[]
+        let {IsRefundable} = data.Attr || {}
         return (
             <View style={{flex:1}}>
                 <StatusBar translucent={true} backgroundColor="#fff" barStyle="dark-content"/>
-                <ScrollView style={{flex:1}}>
+                <ScrollView style={{flex:1,backgroundColor: grey,}}>
+                                                                                                   
                     {data ?
                       Jlist.map((det,index)=>
-                      <View key={index} style={{borderBottomWidth:20,borderColor:'#f5f5f5'}}>
-                          <DetailedCard index={index}  details={det}/>
+                      <View key={index} >
+                        <View style={{marginBottom:index ? 0 :10,marginTop:index? 10 : 0,backgroundColor: '#fff',}}>
+                            <DetailedCard index={index}  details={det}/>
+                        </View>
+                        {!index ? 
+                          <View style={{margin:8,borderWidth:0,padding:8,borderRadius:4,backgroundColor: pink,borderColor:eblue}}>
+                                <Text style={{margin:8,color:'#fff',fontWeight:'500',letterSpacing:1,fontSize:14}}>{IsRefundable ? 'REFUNDABLE' : 'NON-REFUNDABLE'} </Text>
+                            </View>
+                        : null}
                       </View>
                       ) 
                         

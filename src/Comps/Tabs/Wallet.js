@@ -24,7 +24,7 @@ export default class Wallet extends Component {
                     {title:'REWARDS',amount:500},
         ]
         return (
-          <Provider store={store}>
+          
                     <View style={{marginTop:50,flex:1}}>
                         <StatusBar translucent={true} backgroundColor="#fff" barStyle="dark-content"/>
                         <View style={{height:100,flexDirection:'row',margin:10,borderBottomWidth:0.8,borderColor:silver}}>
@@ -67,7 +67,7 @@ export default class Wallet extends Component {
                         
                  </View>
        
-          </Provider>
+         
         )
     }
 }

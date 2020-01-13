@@ -10,7 +10,7 @@ import axios from 'axios'
 import { uuid } from 'uuidv4';
 import {connect} from 'react-redux'
 
-let updatedData = require('./FareQoute.json')
+// let updatedData = require('./DummyData/FareQoute.json')
 // import HTML from 'react-native-render-html';
 
 let {dColor,darktext,lightTeal,silver} = strings
@@ -35,7 +35,7 @@ let {dColor,darktext,lightTeal,silver} = strings
     componentDidMount() {
         let {navigation} = this.props
         navigation.setParams({getList : this.getList})
-        let data = navigation.getParam('JourneyList',updatedData.UpdateFareQuote.FareQuoteDetails.JourneyList)
+        let data = navigation.getParam('JourneyList',null)
         let Passengers = navigation.getParam('Passengers',null)
         this.setState({data,Passengers})
         

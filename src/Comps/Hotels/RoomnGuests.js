@@ -1,23 +1,19 @@
 import React, { Component } from 'react'
 import { Text, View,StatusBar,TouchableOpacity, } from 'react-native'
 import {strings} from '../assets'
-import {connect} from 'react-redux'
 
 let {dColor} =strings
-class TravellerClass extends Component {
+export default class RoomnGuests extends Component {
     static navigationOptions = {
-        title:'Select Travellers & Class'
+        title:'Select Guests & Rooms'
     }
 
     constructor(props){
         super(props)
-        console.warn(props)
-        let {AdultCount,ChildCount,InfantCount} = props.flight ||{}
-        this.state ={selected:'Economy',
+        this.state ={NoOfRooms:1,
             travellers : [
-                {title:'Adults',name:'AdultCount',value : AdultCount || 1,description:'Ages Above 12 Years'},
-                {title:'Children',name:'ChildCount',value :ChildCount || 0,description:'Ages 2 - 12 Years'},
-                {title:'Infants',name:'InfantCount',value :InfantCount || 0,description:'Under 2 Years'},
+                {title:'Adults',name:'AdultCount',value : 1,description:'Ages Above 12 Years'},
+                {title:'Children',name:'ChildCount',value : 0,description:'Ages below 12 Years'},
             ]
         }
     }
@@ -38,20 +34,20 @@ class TravellerClass extends Component {
         let {travellers,selected} = this.state
         let {navigation} = this.props
         let travelClass = navigation.getParam('travelClass',null)
-        let data = {AdultCount : travellers[0].value, ChildCount : travellers[1].value , InfantCount: travellers[2].value , CabinClass: selected}
+        let data = {AdultCount : travellers[0].value, ChildCount : travellers[1].value }
         // alert(JSON.stringify(data))
         if(travelClass) travelClass(data)
         navigation.goBack()
     }
    
     render() {
-        let {travellers,selected} = this.state
+        let {travellers,selected,NoOfRooms} = this.state
         let classes = ['Economy','Premium Economy','Business']
         return (
             <View style={{flex:1}}>
                 <StatusBar backgroundColor="#fff" translucent={true} barStyle="dark-content" />
                  <View style={{flex:1}}>
-                <Text style={{margin:10,color:dColor,fontWeight:'500',fontSize:20}}> TRAVELLERS </Text>
+                <Text style={{margin:10,color:dColor,fontWeight:'500',fontSize:20}}> GUESTS </Text>
 
                 {travellers.map((traveller,id)=>
                      <View key={id} style={{margin:12,flexDirection:'row',justifyContent:'space-between',marginTop:20}}>
@@ -78,17 +74,40 @@ class TravellerClass extends Component {
                      </View>
                     )}
 
-                    <Text style={{margin:10,color:dColor,fontWeight:'500',fontSize:20,marginTop:30}}> CABIN CLASS </Text>
+                    <Text style={{margin:10,color:dColor,fontWeight:'500',fontSize:20,marginTop:30}}> NUMBER OF ROOMS </Text>
 
-                    <View style={{flexDirection:'row',flexWrap:'wrap'}}>
-                        {classes.map((cabin,id)=>
-                            <TouchableOpacity key={id} activeOpacity={0.8} onPress={()=>this.setState({selected:cabin})}
-                            style={{height:40,padding:8,backgroundColor:selected === cabin ? "#000" : '#fff',justifyContent:'center',margin:10,borderWidth:2,borderColor:"#000"}}>
-                                <Text style={{color:selected === cabin ? '#fff' : "#000",textAlign:'center',fontWeight:'500',fontSize:16}}> {cabin} </Text>
-                            </TouchableOpacity>
-                            )}
+                        <View  style={{margin:12,flexDirection:'row',justifyContent:'space-between',marginTop:20}}>
+                            <View style={{justifyContent:'center',flex:3}}>
+                                <Text style={{color:'#000',fontSize:20}}>ROOMS </Text>
+                                
+                            </View>
 
-                    </View>
+                            <View style={{flex:2,flexDirection:'row',justifyContent:'center',height:40,borderWidth:2,borderRadius:6,borderColor:dColor}}>
+                                <TouchableOpacity activeOpacity={0.7} style={{flex:1,justifyContent:'center',opacity:NoOfRooms ? 1 : 0.2}}  
+                                disabled={!NoOfRooms} onPress={() =>NoOfRooms > 1 ? this.setState({NoOfRooms : NoOfRooms - 1}) : null}>
+                                    <Text style={{fontSize:24,color:dColor,fontWeight:'600',textAlign:'center'}}> - </Text>
+                                </TouchableOpacity>
+
+                                <View style={{flex:1,justifyContent:'center'}}>
+                                    <Text style={{fontSize:20,color:'#000',textAlign:'center'}}> {NoOfRooms} </Text>
+                                </View>
+
+
+                                <TouchableOpacity onPress={() =>this.setState({NoOfRooms : NoOfRooms + 1})}  activeOpacity={0.7} style={{flex:1,justifyContent:'center'}}>
+                                    <Text style={{fontSize:24,color:dColor,fontWeight:'600',textAlign:'center'}}> + </Text>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+
+                        {/* <View style={{flexDirection:'row',flexWrap:'wrap'}}>
+                            {classes.map((cabin,id)=>
+                                <TouchableOpacity key={id} activeOpacity={0.8} onPress={()=>this.setState({selected:cabin})}
+                                style={{height:40,padding:8,backgroundColor:selected === cabin ? "#000" : '#fff',justifyContent:'center',margin:10,borderWidth:2,borderColor:"#000"}}>
+                                    <Text style={{color:selected === cabin ? '#fff' : "#000",textAlign:'center',fontWeight:'500',fontSize:16}}> {cabin} </Text>
+                                </TouchableOpacity>
+                                )}
+
+                        </View> */}
 
             </View>
 
@@ -103,11 +122,3 @@ class TravellerClass extends Component {
             )
     }
 }
-
-const mapStateToProps = (state) => {
-    return {
-        flight: state.flight
-    }
-}
-
-export default  connect(mapStateToProps             )(TravellerClass)

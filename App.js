@@ -24,7 +24,7 @@ import auth from '@react-native-firebase/auth'
 
 const TabNavigator = createBottomTabNavigator({
 
-  Account: Account,
+  Account:Account,
   Home: Home,
   Wallet : Wallet,
 },{
@@ -37,10 +37,10 @@ const TabNavigator = createBottomTabNavigator({
 
 const RootStack = createStackNavigator({
   
-  // Home : TabNavigator,
-  // Holidays : HolidayStack,
-  // Buses : BusStack,
-  // Hotels : HotelStack,
+  Home : TabNavigator,
+  Holidays : HolidayStack,
+  Buses : BusStack,
+  Hotels : HotelStack,
   Flights : FlightStack,
   AuthStack: AuthStack,
 },{

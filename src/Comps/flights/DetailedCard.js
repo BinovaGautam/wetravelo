@@ -27,8 +27,8 @@ DetailedCard = props =>{
                         </View>
                         :null}
                 <View style={{flexDirection:'row'}}>
-                    <View style={{backgroundColor:id ?'#000' :lightTeal,justifyContent:'center',paddingHorizontal:10,padding:8,}}>
-                        <Text style={{fontSize:18,textAlign:'center',color:'#fff',fontWeight:'400',letterSpacing:1}}>{id ? ' NEXT   ' : index ? 'RETRUN' : 'DEPART'}</Text>
+                    <View style={{backgroundColor:id ?'#000' :lightTeal,justifyContent:'center',height:50,paddingHorizontal:8}}>
+                        <Text style={{fontSize:18,textAlign:'center',color:'#fff',fontWeight:'400',letterSpacing:1,margin:8}}>{id ? ' NEXT   ' : index ? 'RETRUN' : 'DEPART'}</Text>
                         {/* <Text style={{textAlign:'center',color:'#fff',fontWeight:'500'}}>29 SEPT  </Text> */}
                     </View>
     

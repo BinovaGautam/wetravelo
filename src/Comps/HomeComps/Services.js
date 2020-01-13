@@ -16,8 +16,8 @@ const Services = props => {
            <Text style={{margin:12,fontWeight:'700',color:darktext,fontSize:23,letterSpacing:1}}>What would you like to find?</Text>
             <View style={{flexDirection:'row',flexWrap:'wrap',justifyContent:'center',}}  >
             { typeArray.map((item,id)=>
-                                <TouchableOpacity key={id} onPress={() => navigation.navigate(item.to)}
-                                style={{height:length,width:length,justifyContent:'center',elevation:4,backgroundColor: id ? darktext : lightTeal,borderRadius:5,margin:length/8}} activeOpacity={0.7}>
+                                <TouchableOpacity key={id} onPress={() => id < 2 ? navigation.navigate(item.to): null }
+                                style={{height:length,width:length,justifyContent:'center',elevation:4,backgroundColor: id > 1 ? darktext : lightTeal,borderRadius:5,margin:length/8}} activeOpacity={0.7}>
                                     <Icon name={item.icon} type={item.type} style={{fontWeight:'500',textAlign:'center',color:'#fff',fontSize:25}}/>
                                     <Text style={{fontWeight:'500',textAlign:'center',color:'#fff',fontSize:11}}>{item.name}</Text>
                                 </TouchableOpacity>

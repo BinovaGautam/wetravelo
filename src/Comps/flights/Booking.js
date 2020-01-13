@@ -61,7 +61,13 @@ let {dColor,darktext,lightTeal,pink} = strings
         travellers.map((traveller,id)=>{
             let {list} = traveller
             // delete list['country']
-            Passengers.push(...list)
+            let PassengersList = list.map((item,id) => {
+                let {Title,FirstName,LastName,PaxType,Gender,DateOfBirth,CountryCode,CountryName} = item
+                let itemObj =  {Title,FirstName,LastName,PaxType,Gender,DateOfBirth,CountryCode,CountryName}
+                return itemObj
+
+            })
+            Passengers.push(...PassengersList)
 
             if(id+1 == travellers.length) this.setState({Passengers,ResultToken})
         })

@@ -4,9 +4,9 @@ import { Icon } from 'native-base'
 import HTML from 'react-native-render-html';
 import DetailedCard from './DetailedCard.js';
 import {strings,Loader} from '../assets'
-const FareRule = require('./FareRule.json')
+// const FareRule = require('./FareRule.json')
 
-let {dColor,darktext,lightTeal} = strings
+let {dColor,darktext,lightGreen,silver ,pink,} = strings
 export default class ReturnDetails extends Component {
     static navigationOptions = { 
         title:'Flight Details'
@@ -24,27 +24,39 @@ export default class ReturnDetails extends Component {
 
     render() {
         let data = this.props.navigation.getParam('data',{})
-        let FareRuleDetail = FareRule.FareRule.FareRuleDetail[0]
+        // let FareRuleDetail = FareRule.FareRule.FareRuleDetail[0]
         // let travellerCount = data.Price.PassengerBreakup.ADT.PassengerCount  // get sum of total travellers
         let selections = data ?  data.selection :[]
         return (
             <View style={{flex:1}}>
                 <StatusBar translucent={true} backgroundColor="#fff" barStyle="dark-content"/>
-                <ScrollView style={{flex:1}}>
+                <ScrollView style={{flex:1,backgroundColor: silver,}}>
                     {data ?
                      selections.map((selection,id) => {
                          let Jlist = selection.FlightDetails.Details 
+                         let {IsRefundable} = selection.Attr || {}
                          return(
-                             <View style={{backgroundColor: '#fff',marginBottom:30}}>
-                                 <View style={{height:40,justifyContent:'center',backgroundColor: 'transparent',margin:10,width:250}}>
-                                     <Text style={{fontSize:23,fontWeight:'700',color:darktext,letterSpacing:1}}> {!id ? 'ONWAY' : 'RETURN'} </Text>
+                             <View key={id} style={{marginBottom:!id ? 20 : 0,backgroundColor: '#fff',}}>
+                                 <View style={{height:40,alignContent:'center',backgroundColor: 'transparent',margin:10,width:250,flexDirection:'row'}}>
+                                    <Icon name="ios-airplane" style={{marginHorizontal:8,marginTop:5,alignSelf: 'center',transform: [{ rotate:!id ? '0deg': '180deg' }]}}  />
+                                   
+                                     <Text style={{fontSize:20,fontWeight:'700',color:darktext,letterSpacing:1,alignSelf:'center'}}> 
+                                     {!id ? ' ONWAY' : ' RETURN'}
+                                     
+                                      </Text>
                                  </View>
-                            { Jlist.map((det,index)=>
-                                <View key={index} style={{borderBottomWidth:20,borderColor:'#f5f5f5'}}>
-                                    <DetailedCard index={index}  details={det}/>
-                                    {/* <Text> {index} </Text> */}
-                                </View>
-                                ) }
+                            {  Jlist.map((det,index)=>
+                                    <View key={index} >
+                                        <View style={{marginBottom:index ? 0 :10,marginTop:index? 10 : 0,backgroundColor: '#fff',}}>
+                                            <DetailedCard index={index}  details={det}/>
+                                        </View>
+                                        {!index ? 
+                                        <View style={{margin:8,borderWidth:0 ,padding:8,borderRadius:4,backgroundColor:IsRefundable ? lightGreen : pink,}}>
+                                                <Text style={{margin:8,color:'#fff',fontWeight:'700',letterSpacing:1,fontSize:14}}>{IsRefundable ? 'REFUNDABLE' : 'NON-REFUNDABLE'} </Text>
+                                            </View>
+                                        : null}
+                                    </View>
+                      )  }
                             </View>    
                          )
                      })

@@ -3,7 +3,7 @@ import { Text, View,StatusBar,ScrollView,TouchableOpacity } from 'react-native'
 import {connect} from 'react-redux' 
 import JourneyDetails from './JourneyDetails.js'
 import DetailCard from './DetailCard.js'
-import {Loader,strings} from '../assets'
+import {Loader,strings,FlightLoading} from '../assets'
 import axios from 'axios'
 import MultipleCard from './MultipleCard.js'
 import LottieView from 'lottie-react-native';
@@ -14,7 +14,7 @@ import SplitView from './SplitView.js'
 // const FlightData = require('./flightDomesticReturn.json')
 const FlightData = null
 
-let {dColor,darktext} = strings 
+let {dColor,darktext,pink,lightTeal} = strings 
 const mapStateToProps = state =>({
   counter : state.counter,
   name : state.name
@@ -45,7 +45,7 @@ class FlightList extends Component {
         super(props)
         this.state = {loading:!FlightData,
         // JourneyList:FlightData ? FlightData.Search.FlightDataList.JourneyList : null,
-        // type: 'Return'
+        // type: 'OneWay'
     }
     }
 
@@ -53,7 +53,7 @@ componentDidMount() {
     //bind the bottom action sheet to navigation bar
     this.props.navigation.setParams({ sheet: this.RBSheet })
      this.getFlights()
-    //Initial Sort test must be removed later 
+    // Initial Sort test must be removed later 
     // let {JourneyList} = this.state
     // let List = JourneyList[0].sort((a,b)=>{
     //     return a.Price.TotalDisplayFare - b.Price.TotalDisplayFare
@@ -84,7 +84,7 @@ getFlights = () =>{  //This function calls the API to get the flight's list
         ]
         })
     let type = this.props.navigation.getParam('type','OneWay')
-    console.warn(data)
+    // console.warn(data)
     // alert(type)
     this.setState({type})
     console.log(data)
@@ -126,12 +126,16 @@ sort = (sorted,id) =>{
             <View style={{flex:1,}}>
                 <StatusBar translucent={true} backgroundColor="#fff" barStyle="dark-content"/>
                 {/* <Text>{ListToMap.length} </Text> */}
-                {loading ? <LottieView source={require('../assets/lottie/10398-plane-window.json')} autoPlay loop /> : null}
+                {loading ? 
+                // <LottieView source={require('../assets/lottie/10398-plane-window.json')} autoPlay loop />
+                <FlightLoading/>
+                 : null}
                 {/* <View style={{height:50,elevation:3,backgroundColor:'#fff'}}></View>
                 <View style={{height:50,elevation:3,backgroundColor:'#ddd'}}></View> */}
                 <View style={{flexDirection:'row'}}></View>
                  
                  <View style={{flex:1,}}>
+                    
                       {JourneyList && type ? type==='Return' ? 
                        //Check Return type is domestic or international... i.e. domestic Journeylist.length will be 2
                        JourneyList.length > 1 ?

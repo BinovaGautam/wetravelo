@@ -10,11 +10,13 @@ import TravellerClass from './TravellerClass'
 import CheckOut from './CheckOut'
 import TravellerForm from './TravellerForm'
 import SelectCountry from './SelectCountry'
-import Booking from './Booking'
+import Booking from './DummyData/Booking'
 import Payment from './Payment'
 import Confirmation from './Confirmation'
 import { Icon } from 'native-base'
 import ReturnDetails from './ReturnDetails'
+import MasterList from './MasterList'
+import ServicesNav from './ExtraServices'
 
 
 let ios = Platform.OS === 'ios' ? true : false
@@ -27,7 +29,9 @@ let FlightStack = createStackNavigator({
     // Confirmation: Confirmation,
     // Payment : Payment,
     // Booking : Booking,
+    ExtraServices : ServicesNav,
     CheckOut : CheckOut,
+    MasterList : MasterList,
     TravellerForm : TravellerForm,
      SelectCountry: SelectCountry,
       SelectPort : SelectPort,

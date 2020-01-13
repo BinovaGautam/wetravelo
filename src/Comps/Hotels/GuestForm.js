@@ -9,7 +9,7 @@ import Snackbar from 'react-native-snackbar';
 let {dColor,darktext,lightTeal,pink} = strings
 export default class GuestForm extends Component {
     static navigationOptions = { 
-        title:'Add Guest'
+        // title:'Add Guest'
     }
 
     constructor(props){

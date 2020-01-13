@@ -7,7 +7,8 @@ import {
 import CalendarPicker from 'react-native-calendar-picker';
 import {strings,Loader} from '../assets' 
 import { Icon } from 'native-base';
-import {SingleDatepicker} from 'react-native-scrollable-datepicker'
+import SingleDatepicker from 'react-native-scrollable-datepicker'
+
 
 let {dColor,lightGreen} = strings
 let {height,width} = Dimensions.get('screen')
@@ -48,10 +49,10 @@ export default class SelectDate extends Component {
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#fff" translucent={true} barStyle="dark-content" />
-        <SingleDatepicker showButton={true} showClose={false} buttonColor={dColor} selectedBackgroundColor={dColor}
+        {/* <SingleDatepicker showButton={true} showClose={false} buttonColor={dColor} selectedBackgroundColor={dColor}
             onSelect =  {date => this.onDateChange(date)}
-        />
-        {/* <CalendarPicker
+        /> */}
+        <CalendarPicker
           startFromMonday={true}
           allowRangeSelection={false}
           minDate={minDate}
@@ -64,7 +65,7 @@ export default class SelectDate extends Component {
           previousTitle = {<Icon name="arrow-left-bold-circle-outline" type="MaterialCommunityIcons" style={{alignSelf:'center'}} />}
           nextTitle = {<Icon name="arrow-right-bold-circle-outline" type="MaterialCommunityIcons" style={{alignSelf:'center'}} />}
           scaleFactor={350} 
-        /> */}
+        />
  
         {/* <View>
           <Text>SELECTED START DATE:{ startDate }</Text>

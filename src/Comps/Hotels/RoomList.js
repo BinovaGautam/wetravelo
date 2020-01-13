@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { Text, View,StatusBar,Platform,TouchableOpacity,ScrollView} from 'react-native'
 import {strings, Loader} from '../assets'
 import Axios from 'axios'
+import { Icon } from 'native-base'
 
 let {dColor,darktext,lightTeal,pink} = strings
 const ios = Platform.OS === 'ios' ? true : false
-let RoomJson = require('./Rooms');
+// let RoomJson = require('./Rooms');
 
 export default class RoomList extends Component {
     constructor(props){
@@ -80,26 +81,31 @@ export default class RoomList extends Component {
         let {HotelRoomsDetails,RoomCombinations,loading,group,selected,roomId,groupId,ResultToken} = this.state
         let {navigation} = this.props
         return (
-            <View style={{flex:1}}>
+            <View style={{flex:1,backgroundColor: '#fff',}}>
                  <StatusBar translucent={true} barStyle="dark-content" backgroundColor="#fff"/>
                
                  {loading ? <Loader/> : null}
 
                  {HotelRoomsDetails ?
                   <View style={{flex:1}}>
-                        <Text style={[{fontSize:36,fontWeight:'600',color:darktext,fontFamily:ios?'Optima':'sans-serif-medium',margin:8} ]}>Select Room </Text>
+                        <Text style={[{fontSize:32,fontWeight:'600',letterSpacing:1,color:'#000',fontFamily:ios?'Optima':'sans-serif-medium',margin:8} ]}>Select Room </Text>
                       <ScrollView style={{flex:1}}>
                            { Object.keys(group).map((key,id)=>
-                            <View key={id} style={{margin:8,borderBottomWidth:0.6,borderColor:'#ddd'}}>
-                                    <Text style={[{fontSize:22,fontWeight:'500',color:dColor,fontFamily:ios?'Optima':'sans-serif-medium',margin:8} ]}>{key.toUpperCase()} </Text>
+                            <View key={id} style={{margin:8,}}>
+                                    <Text style={[{fontSize:18,fontWeight:'600',color:darktext,fontFamily:ios?'Optima':'sans-serif-medium',margin:8,letterSpacing:1} ]}>{key.toUpperCase()} </Text>
                                     {group[key].map((hotel,index)=>{
                                         let {Price,CancellationPolicy} = hotel
                                         let {OfferedPriceRoundedOff,PublishedPriceRoundedOff} = Price
                                         let isSelected = roomId == index && groupId == id 
                                         return(
                                             <TouchableOpacity activeOpacity={0.8} onPress={()=> this.setState({selected:hotel,roomId:index,groupId:id})}
-                                            key={index} style={{margin:5,borderTopWidth:isSelected ? 1 : 0.4,borderColor:isSelected ? dColor : '#ddd'}}>
-                                                <Text style={{fontSize:22,fontWeight:'500',color:isSelected ? dColor : darktext,letterSpacing:1}}> ₹ {OfferedPriceRoundedOff} </Text>
+                                            key={index} style={{margin:5,backgroundColor:"#ecf0f1" , borderRadius:5,padding:10}}>
+                                                <View style={{flexDirection:'row',margin:8}}>
+                                                    <Text style={{fontSize:22,fontWeight:'500',color:isSelected ? dColor : darktext,letterSpacing:1,flex:1}}> ₹ {OfferedPriceRoundedOff} </Text>
+                                                    <Icon name={isSelected?"ios-checkmark-circle":"circle"} type={isSelected?'Ionicons':'Feather'} 
+                                                    style={{margin:8,color:selected?lightTeal:darktext,alignSelf: 'center',textAlign:'center'}}/>
+                                                </View>
+                                               
                                                 {PublishedPriceRoundedOff && PublishedPriceRoundedOff > OfferedPriceRoundedOff
                                                     ? <Text style={{fontSize:14,color:'#95a5a6',textDecorationLine:'line-through'}}> ₹ {PublishedPriceRoundedOff} </Text>:null}
 

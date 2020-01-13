@@ -4,7 +4,7 @@ import { Icon ,Card,CardItem,Right,CheckBox,Body,ListItem,Form, Item, Input, Lab
 import { iOSUIKit } from 'react-native-typography'
 import Snackbar from 'react-native-snackbar'
 import {strings} from '../assets'
-import DetailCard from './DetailCard'
+import FlightTicket from '../CommonComps/FlightTicket'
 import MultipleCard from './MultipleCard'
 import LottieView from 'lottie-react-native';
 import firestore from '@react-native-firebase/firestore';
@@ -41,8 +41,9 @@ let {dColor,darktext,lightTeal,silver} = strings
             this.setState({data})
             let {user} = this.props.auth || {}
             let {uid} = user || {}
-
-            firestore().collection('flightBookings').add({...data,uid,bookingTime:Date.now()})
+            let bookingObj = {...data}
+            bookingObj.JourneyList = JSON.stringify(bookingObj.JourneyList)
+            firestore().collection('flightBookings').add({...bookingObj,uid,bookingTime:Date.now()})
         }
 
         Animated.timing(this.state.progress, {
@@ -50,7 +51,7 @@ let {dColor,darktext,lightTeal,silver} = strings
             duration: 2000,
             easing: Easing.linear,
           }).start();
-
+         
           setTimeout(()=>this.setState({success:true}),1800)
         
     }
@@ -66,7 +67,6 @@ let {dColor,darktext,lightTeal,silver} = strings
 
     render() {
         let {navigation} = this.props
-        // let data = navigation.getParam('data',{})
         let ios = Platform.OS === 'ios' ? true : false
         let {travellers,submit,phone,email,data,success} =  this.state
         let {Price,JourneyList,PassengerDetails,BookingId,PNR} = data ? data  : {}
@@ -134,7 +134,7 @@ let {dColor,darktext,lightTeal,silver} = strings
                                 
                                           {Jlist.map((det,index)=>
                                           <View key={index} style={{borderBottomWidth:20,borderColor:'#f5f5f5'}}>
-                                              <DetailedCard index={index}  details={det}/>
+                                              <FligthTicket index={index}  details={det}/>
                                           </View>)}
   
                                          
